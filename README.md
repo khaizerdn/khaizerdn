@@ -26,7 +26,7 @@ My journey spans from **IoT-powered university systems** to **high-performance g
 
 ## 📌 Featured Projects  
 
-### 🔹 [Doxion](https://github.com/khaizerdn) (Cavite State University)  
+### 🔹 Doxion
 A **document submission system** with a React-based web app, kiosk integration, and IoT-powered smart lockers.  
 - Built with **React, Raspberry Pi, ESP8266, MySQL**  
 - Improved operational efficiency for students and faculty with **real-time updates** and optimized data handling  
@@ -41,7 +41,7 @@ A **React Native mobile app** with **NFC payments** and **Raspberry Pi-based kio
 
 ---
 
-### 🔹 SHIELD (CvSU)  
+### 🔹 SHIELD 
 A **React + Electron desktop app** for student organization management.  
 - Real-time **member management system** with search and filtering  
 - Boosted engagement and participation in university activities  
@@ -56,7 +56,7 @@ A large-scale **gaming server** with custom scripts, cloud hosting, and performa
 
 ---
 
-### 🔹 CREOTEC Systems (Internship)  
+### 🔹 CREOTEC Philippines Inc. (Internship)  
 - **Creopolis**: Unity app for teaching electronics & coding  
 - **MakeX Tournament Manager**: International robotics tournament system  
 - **Drone Soccer Competition System**: Match scoring & scheduling platform  
