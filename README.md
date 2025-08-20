@@ -1,10 +1,10 @@
 # Hi, I'm Khaizer Noguera
-![Philippines Cavite](https://img.shields.io/badge/Philippines-Cavite-EAEAEA?style=for-the-badge&logo=googlemaps&logoColor=EAEAEA)
-[![Email](https://img.shields.io/badge/Email-khaizerdn%40gmail.com-EAEAEA?style=for-the-badge&logo=gmail&logoColor=EAEAEA)](mailto:khaizerdn@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-khaizerdn-EAEAEA?style=for-the-badge&logo=linkedin&logoColor=EAEAEA)](https://www.linkedin.com/in/khaizerdn)
-[![GitHub](https://img.shields.io/badge/GitHub-khaizerdn-EAEAEA?style=for-the-badge&logo=github&logoColor=EAEAEA)](https://github.com/khaizerdn)
-[![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-EAEAEA?style=for-the-badge&logo=facebook&logoColor=EAEAEA)](https://facebook.com/khaizerdn)
-[![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-EAEAEA?style=for-the-badge&logo=instagram&logoColor=EAEAEA)](https://instagram.com/khaizerdn)
+![Philippines Cavite](https://img.shields.io/badge/Philippines-Cavite-DADAD8?style=for-the-badge&logo=googlemaps&logoColor=DADAD8)
+[![Email](https://img.shields.io/badge/Email-khaizerdn%40gmail.com-DADAD8?style=for-the-badge&logo=gmail&logoColor=DADAD8)](mailto:khaizerdn@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-khaizerdn-DADAD8?style=for-the-badge&logo=linkedin&logoColor=DADAD8)](https://www.linkedin.com/in/khaizerdn)
+[![GitHub](https://img.shields.io/badge/GitHub-khaizerdn-DADAD8?style=for-the-badge&logo=github&logoColor=DADAD8)](https://github.com/khaizerdn)
+[![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-DADAD8?style=for-the-badge&logo=facebook&logoColor=DADAD8)](https://facebook.com/khaizerdn)
+[![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-DADAD8?style=for-the-badge&logo=instagram&logoColor=DADAD8)](https://instagram.com/khaizerdn)
 
 A Cum Laude graduate with Bachelor’s degree in Computer Engineering and a Full-Stack Developer skilled in React.js, React Native, Node.js, MySQL, and AWS. I have a proven record of building complete web, mobile, and desktop applications. At CREOTEC Philippines, I developed learning and tournament systems in Unity and MySQL to support international robotics competitions (makex.cc/en). My projects include Doxion, a React-based document system with IoT smart locker integration; Shuttlecav, a React Native app with NFC payments powered by AWS Lightsail and Raspberry Pi kiosks; and SHIELD, a React and Electron desktop app for student management. I also showcased strong leadership by founding PLAYER ONE, an esports organization where I managed tournaments, guided a team, and secured sponsorships. Additionally, I founded Grand V, a FiveM gaming server where I design custom scripts, implement caching and batch database updates, and apply event-driven programming, concurrency handling, and latency optimization to support large-scale systems. I also established and led Valph, a Valheim server that fostered community engagement, teamwork, and collaborative play.
 
