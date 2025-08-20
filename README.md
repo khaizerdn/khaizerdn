@@ -1,90 +1,51 @@
-# Hi, I'm Khaizer 👋
+# Hi, I'm Khaizer Noguera
+![Philippines Cavite](https://img.shields.io/badge/Philippines-Cavite-EAEAEA?style=for-the-badge&logo=googlemaps&logoColor=EAEAEA)
+[![Email](https://img.shields.io/badge/Email-khaizerdn%40gmail.com-EAEAEA?style=for-the-badge&logo=gmail&logoColor=EAEAEA)](mailto:khaizerdn@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-khaizerdn-EAEAEA?style=for-the-badge&logo=linkedin&logoColor=EAEAEA)](https://www.linkedin.com/in/khaizerdn)
+[![GitHub](https://img.shields.io/badge/GitHub-khaizerdn-EAEAEA?style=for-the-badge&logo=github&logoColor=EAEAEA)](https://github.com/khaizerdn)
+[![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-EAEAEA?style=for-the-badge&logo=facebook&logoColor=EAEAEA)](https://facebook.com/khaizerdn)
+[![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-EAEAEA?style=for-the-badge&logo=instagram&logoColor=EAEAEA)](https://instagram.com/khaizerdn)
 
-🎓 **Cum Laude | Computer Engineering Graduate | Full-Stack Developer**  
-📍 Cavite, Philippines | ✉️ khaizerdn@gmail.com | [LinkedIn](https://www.linkedin.com/in/khaizerdn) | [Portfolio](https://github.com/khaizerdn)
+A Cum Laude graduate with Bachelor’s degree in Computer Engineering and a Full-Stack Developer skilled in React.js, React Native, Node.js, MySQL, and AWS. I have a proven record of building complete web, mobile, and desktop applications. At CREOTEC Philippines, I developed learning and tournament systems in Unity and MySQL to support international robotics competitions (makex.cc/en). My projects include Doxion, a React-based document system with IoT smart locker integration; Shuttlecav, a React Native app with NFC payments powered by AWS Lightsail and Raspberry Pi kiosks; and SHIELD, a React and Electron desktop app for student management. I also showcased strong leadership by founding PLAYER ONE, an esports organization where I managed tournaments, guided a team, and secured sponsorships. Additionally, I founded Grand V, a FiveM gaming server where I design custom scripts, implement caching and batch database updates, and apply event-driven programming, concurrency handling, and latency optimization to support large-scale systems. I also established and led Valph, a Valheim server that fostered community engagement, teamwork, and collaborative play.
 
----
+## Tech Stack
 
-## 🚀 About Me  
-I’m a **Full-Stack Developer** with hands-on experience building complete **web, mobile, and desktop applications**.  
-Skilled in **React.js, React Native, Node.js, MySQL, AWS, and Unity**, I’ve developed scalable systems for education, transportation, esports, and gaming communities.  
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Electron](https://img.shields.io/badge/Electron-2C2E3B?style=for-the-badge&logo=electron&logoColor=47848F)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=ffffff)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=ffffff)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=ffffff)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=ffffff)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=ffffff)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=000000)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffffff)
+![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=ffffff)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=ffffff)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=ffffff)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffffff)
+![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=ffffff)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=ffffff)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=ffffff)
+![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=ffffff)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=ffffff)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=000000)
 
-I love solving complex problems through **human-centered design, performance optimization, and creative system architecture**.  
-My journey spans from **IoT-powered university systems** to **high-performance gaming servers** with real-time concurrency handling.
+## Achievements
 
----
+- Contributed to the Creopolis learning application at CREOTEC Philippines Inc.
+- Contributed to the MakeX tournament management application at CREOTEC Philippines Inc.
+- Contributed to the Drone Soccer Competition application at CREOTEC Philippines Inc.
+- Graduated Cum Laude in Computer Engineering at Cavite State University of Carmona.
+- Founded PLAYER ONE, an esports organization that is focused on amplifying gamers competitivenes.
+- Managed FiveM and Valheim servers as a developer and community administrator.
+- Presented research at the 5th Student Research Congress.
 
-## 🛠️ Tech Stack  
-
-- **Frontend:** React.js, React Native, Expo, Electron, TypeScript, JavaScript, HTML, CSS  
-- **Backend:** Node.js, MySQL, AWS Lightsail, Snowflake, REST APIs  
-- **Programming Languages:** C++, C#, Python, Lua  
-- **Tools & Frameworks:** Git/GitHub, Figma, Unity, Adobe, Cron, CLI  
-- **Specialties:** Concurrency, Event-driven Programming, System Optimization, UI/UX, Cloud Deployment  
-
----
-
-## 📌 Featured Projects  
-
-### 🔹 CREOTEC Philippines Inc. (Internship)  
-- **Creopolis**: Unity app for teaching electronics & coding  
-- **MakeX Tournament Manager**: International robotics tournament system  
-- **Drone Soccer Competition System**: Match scoring & scheduling platform  
-
----
-
-### 🔹 Doxion
-A **document submission system** with a React-based web app, kiosk integration, and IoT-powered smart lockers.  
-- Built with **React, Raspberry Pi, ESP8266, MySQL**  
-- Improved operational efficiency for students and faculty with **real-time updates** and optimized data handling  
-
----
-
-### 🔹 Shuttlecav  
-A **React Native mobile app** with **NFC payments** and **Raspberry Pi-based kiosks**.  
-- Backend powered by **AWS Lightsail**  
-- Admin dashboard to manage fares, routes, drivers, and inspectors  
-- Enhanced commuter experience with secure transactions  
-
----
-
-### 🔹 Shield 
-A **React + Electron desktop app** for student organization management.  
-- Real-time **member management system** with search and filtering  
-- Boosted engagement and participation in university activities  
-
----
-
-### 🔹 Grand V (FiveM Server)  
-A large-scale **gaming server** with custom scripts, cloud hosting, and performance optimizations.  
-- Built with **React.js, Lua, JavaScript, MySQL, AWS, Hetzner Cloud**  
-- Implemented **caching, batch updates, concurrency handling, and latency optimization**  
-- Designed custom UI and interactive features for players  
-
----
-
-## 🏆 Achievements & Leadership  
-
-- 🎓 **Cum Laude, Computer Engineering – Cavite State University**  
-- 🌍 **Founder of PLAYER ONE**, an esports organization with international and local partnerships  
-- 🎮 Managed **Valph Valheim** and **Grand V FiveM** servers, fostering gaming communities  
-- 📜 Presented research at the **5th Student Research Congress (2025)**  
-
----
-
-## 📂 Certifications  
+## Certifications  
 
 - CREOTEC Philippines Internship – 2024  
-- Globe Business: *AI-Driven Future of Manufacturing & Logistics* – 2025  
-- Introduction to Firebase for React Applications – 2025  
-- Introduction to Design Thinking & SDGs – 2025  
-
----
-
-## 📫 Let’s Connect  
-- GitHub: [github.com/khaizerdn](https://github.com/khaizerdn)  
-- LinkedIn: [linkedin.com/in/khaizerdn](https://www.linkedin.com/in/khaizerdn)  
-- Email: **khaizerdn@gmail.com**  
-
----
-⭐️ From [Khaizer](https://github.com/khaizerdn)
+- Globe Business: AI-Driven Future of Manufacturing & Logistics – 2025  
+- Introduction to Design Thinking & SDGs – 2025
+- Terra Hertz: Submarine Cable System - 2025
+- Introduction to Firebase for React Applications – 2025
