@@ -1,35 +1,36 @@
-# Hi, I'm Khaizer Noguera
-![Philippines Cavite](https://img.shields.io/badge/Philippines-Cavite-DADAD8?style=for-the-badge&logo=googlemaps&logoColor=DADAD8)
-[![Email](https://img.shields.io/badge/Email-khaizerdn%40gmail.com-DADAD8?style=for-the-badge&logo=gmail&logoColor=DADAD8)](mailto:khaizerdn@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-khaizerdn-DADAD8?style=for-the-badge&logo=linkedin&logoColor=DADAD8)](https://www.linkedin.com/in/khaizerdn)
-[![GitHub](https://img.shields.io/badge/GitHub-khaizerdn-DADAD8?style=for-the-badge&logo=github&logoColor=DADAD8)](https://github.com/khaizerdn)
-[![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-DADAD8?style=for-the-badge&logo=facebook&logoColor=DADAD8)](https://facebook.com/khaizerdn)
-[![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-DADAD8?style=for-the-badge&logo=instagram&logoColor=DADAD8)](https://instagram.com/khaizerdn)
+## Khaizer D. Noguera
+![Philippines Cavite](https://img.shields.io/badge/Philippines-Cavite-393C3F?style=for-the-badge&logo=googlemaps&logoColor=DADAD8)
+[![Email](https://img.shields.io/badge/Email-khaizerdn%40gmail.com-393C3F?style=for-the-badge&logo=gmail&logoColor=DADAD8)](mailto:khaizerdn@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-khaizerdn-393C3F?style=for-the-badge&logo=linkedin&logoColor=DADAD8)](https://www.linkedin.com/in/khaizerdn)
+[![GitHub](https://img.shields.io/badge/GitHub-khaizerdn-393C3F?style=for-the-badge&logo=github&logoColor=DADAD8)](https://github.com/khaizerdn)
+[![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-393C3F?style=for-the-badge&logo=facebook&logoColor=DADAD8)](https://facebook.com/khaizerdn)
+[![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-393C3F?style=for-the-badge&logo=instagram&logoColor=DADAD8)](https://instagram.com/khaizerdn)
 
 A Cum Laude graduate with Bachelor’s degree in Computer Engineering and a Full-Stack Developer skilled in React.js, React Native, Node.js, MySQL, and AWS. I have a proven record of building complete web, mobile, and desktop applications. At CREOTEC Philippines, I developed learning and tournament systems in Unity and MySQL to support international robotics competitions (makex.cc/en). My projects include Doxion, a React-based document system with IoT smart locker integration; Shuttlecav, a React Native app with NFC payments powered by AWS Lightsail and Raspberry Pi kiosks; and SHIELD, a React and Electron desktop app for student management. I also showcased strong leadership by founding PLAYER ONE, an esports organization where I managed tournaments, guided a team, and secured sponsorships. Additionally, I founded Grand V, a FiveM gaming server where I design custom scripts, implement caching and batch database updates, and apply event-driven programming, concurrency handling, and latency optimization to support large-scale systems. I also established and led Valph, a Valheim server that fostered community engagement, teamwork, and collaborative play.
 
 ## Tech Stack
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Electron](https://img.shields.io/badge/Electron-2C2E3B?style=for-the-badge&logo=electron&logoColor=47848F)
+![React](https://img.shields.io/badge/React-393C3F?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Native](https://img.shields.io/badge/React%20Native-393C3F?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Electron](https://img.shields.io/badge/Electron-393C3F?style=for-the-badge&logo=electron&logoColor=61DAFB)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=ffffff)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=ffffff)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=ffffff)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=ffffff)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=ffffff)
-![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=000000)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=aws&logoColor=000000)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffffff)
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=ffffff)
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=ffffff)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffffff)
 ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=ffffff)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=ffffff)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=ffffff)
-![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=ffffff)
+![GitHub](https://img.shields.io/badge/GitHub-393C3F?style=for-the-badge&logo=github&logoColor=ffffff)
+![Unity](https://img.shields.io/badge/Unity-393C3F?style=for-the-badge&logo=unity&logoColor=ffffff)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=ffffff)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=000000)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=ffffff)
 
 ## Achievements
 
