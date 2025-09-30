@@ -6,7 +6,7 @@
 [![Facebook](https://img.shields.io/badge/Facebook-khaizerdn-393C3F?style=for-the-badge&logo=facebook&logoColor=DADAD8)](https://facebook.com/khaizerdn)
 [![Instagram](https://img.shields.io/badge/Instagram-khaizerdn-393C3F?style=for-the-badge&logo=instagram&logoColor=DADAD8)](https://instagram.com/khaizerdn)
 
-A Cum Laude graduate with a Bachelor’s degree in Computer Engineering, skilled Full-Stack Developer, and experienced in cloud platforms such as AWS and Hetzner. Proven track record in building complete web, mobile, and desktop applications, with additional experience in game development using Unity and Lua.
+A Cum Laude graduate with a Bachelor’s degree in Computer Engineering, skilled Full-Stack Developer, and experienced in cloud platforms such as AWS and Hetzner. With proven track record in building complete web, mobile, and desktop applications, with additional experience in game development using Unity and Lua.
 
 ## Tech Stack
 
