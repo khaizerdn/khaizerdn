@@ -8,19 +8,7 @@
 
 A Cum Laude graduate with a Bachelor's degree in Computer Engineering, skilled Full-Stack Developer, and experienced in cloud platforms such as AWS and Hetzner. With proven track record in building complete web, mobile, and desktop applications, with additional experience in game development using Unity and Lua.
 
-## 🌐 Portfolio Website
-
-**Live Site:** [khaizerdn.github.io/khaizerdn](https://khaizerdn.github.io/khaizerdn)
-
-A modern, responsive portfolio website built with Next.js 14, Tailwind CSS, and deployed on GitHub Pages. Features smooth scrolling, animations, and a clean black & white design.
-
-### Tech Stack (Portfolio)
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Smooth Scrolling:** smooth-scrollbar
-- **Deployment:** GitHub Pages
+**Portfolio Website:** [khaizerdn.github.io/khaizerdn](https://khaizerdn.github.io/khaizerdn)
 
 ## Tech Stack
 
@@ -62,39 +50,3 @@ A modern, responsive portfolio website built with Next.js 14, Tailwind CSS, and 
 - Introduction to Design Thinking & SDGs – 2025
 - Terra Hertz: Submarine Cable System - 2025
 - Introduction to Firebase for React Applications – 2025
-
----
-
-## 🚀 Portfolio Project Setup
-
-### Prerequisites
-- Node.js 20+ 
-- npm or yarn
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/khaizerdn/khaizerdn.git
-cd khaizerdn
-
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-```
-
-### Deployment
-
-The portfolio is automatically deployed to GitHub Pages via GitHub Actions when you push to the `main` branch.
-
-To deploy manually:
-```bash
-npm run build
-# The out/ folder will be created with static files
-```
-
----
-
-⭐ **Star this repo if you find it helpful!**
