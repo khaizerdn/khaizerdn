@@ -77,14 +77,14 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
-        <div className="text-center flex flex-col items-center gap-8">
+        <div className="text-center flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full px-4"
+            className="w-full px-4 mb-4 sm:mb-6 md:mb-8 lg:mb-8"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter break-words" style={{ lineHeight: '0.9', minHeight: 'unset' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl xl:text-8xl font-bold break-words" style={{ lineHeight: '0.9', minHeight: 'unset' }}>
               <motion.span
                 key={hoveredUrl || 'default'}
                 initial={{ opacity: 0, y: 10 }}
@@ -118,7 +118,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full px-4"
+            className="w-full px-4 mb-4 sm:mb-6 md:mb-8 lg:mb-8"
           >
             <div className="max-w-3xl mx-auto h-[3.5rem] md:h-[4rem] flex items-center justify-center">
               <AnimatePresence mode="wait">
@@ -137,55 +137,57 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center"
-          >
-            <div className="stable-container">
-              <div className="inline-flex items-stretch gap-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden isolate">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative p-4 text-white border-r border-white/10 last:border-r-0 flex items-center justify-center w-[3rem] h-[3rem] box-border"
-                      style={{ flexShrink: 0 }}
-                      onMouseEnter={() => setHoveredUrl(social.href)}
-                      onMouseLeave={() => setHoveredUrl(null)}
-                      onMouseDown={() => setHoveredUrl(social.href)}
-                      onTouchStart={() => setHoveredUrl(social.href)}
-                    >
-                      <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                      <Icon size={20} className="relative z-10 group-hover:brightness-150 transition-[filter] duration-300" />
-                      <span className="sr-only">{social.label}</span>
-                    </a>
-                  )
-                })}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center"
-          >
-            <motion.a
-              href="#about"
-              className="inline-flex items-center gap-2 text-sm text-white transition-colors duration-300 font-light tracking-wide"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+          <div className="flex flex-col items-center mb-4 sm:mb-6 md:mb-8 lg:mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="flex justify-center mb-8"
             >
-              <span>Scroll to explore</span>
-              <ChevronDown size={16} />
-            </motion.a>
-          </motion.div>
+              <div className="stable-container">
+                <div className="inline-flex items-stretch gap-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden isolate">
+                  {socialLinks.map((social, index) => {
+                    const Icon = social.icon
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative p-4 text-white border-r border-white/10 last:border-r-0 flex items-center justify-center w-[3rem] h-[3rem] box-border"
+                        style={{ flexShrink: 0 }}
+                        onMouseEnter={() => setHoveredUrl(social.href)}
+                        onMouseLeave={() => setHoveredUrl(null)}
+                        onMouseDown={() => setHoveredUrl(social.href)}
+                        onTouchStart={() => setHoveredUrl(social.href)}
+                      >
+                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                        <Icon size={20} className="relative z-10 group-hover:brightness-150 transition-[filter] duration-300" />
+                        <span className="sr-only">{social.label}</span>
+                      </a>
+                    )
+                  })}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex justify-center"
+            >
+              <motion.a
+                href="#about"
+                className="inline-flex items-center gap-2 text-sm text-white transition-colors duration-300 font-light tracking-wide"
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+              >
+                <span>Scroll to explore</span>
+                <ChevronDown size={16} />
+              </motion.a>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
