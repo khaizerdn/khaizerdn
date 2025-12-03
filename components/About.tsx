@@ -40,30 +40,34 @@ export default function About() {
           <div className="w-16 h-px bg-white/30 mx-auto"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col h-full"
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">
               Passionate Software Engineer
             </h3>
-            <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
-              I'm a software engineer passionate about creating exceptional digital
-              experiences. With expertise in modern web technologies, I specialize in
-              building responsive, performant applications that solve real-world problems.
-            </p>
-            <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
-              My journey in software development has been driven by curiosity and a
-              commitment to continuous learning. I enjoy working with cutting-edge
-              technologies and contributing to open-source projects.
-            </p>
-            <p className="text-gray-400 leading-relaxed text-lg font-light">
-              When I'm not coding, you can find me exploring new technologies, reading
-              tech blogs, or contributing to the developer community.
-            </p>
+            <div className="flex-grow">
+              <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
+                I'm a software engineer passionate about creating exceptional digital
+                experiences. With expertise in modern web technologies, I specialize in
+                building responsive, performant applications that solve real-world problems.
+              </p>
+              <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
+                My journey in software development has been driven by curiosity and a
+                commitment to continuous learning. I enjoy working with cutting-edge
+                technologies and contributing to open-source projects.
+              </p>
+              <p className="text-gray-400 leading-relaxed text-lg font-light">
+                When I'm not coding, you can find me exploring new technologies, reading
+                tech blogs, or contributing to the developer community.
+              </p>
+            </div>
+            <div className="w-16 h-px bg-white/30 mt-auto"></div>
           </motion.div>
 
           <motion.div
