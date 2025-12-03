@@ -1,36 +1,30 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, MapPin } from 'lucide-react'
-
-const contactMethods = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'your.email@example.com',
-    href: 'mailto:your.email@example.com',
-  },
-  {
-    icon: Github,
-    label: 'GitHub',
-    value: 'github.com/khaizerdn',
-    href: 'https://github.com/khaizerdn',
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/khaizerdn',
-    href: 'https://linkedin.com/in/khaizerdn',
-  },
-  {
-    icon: MapPin,
-    label: 'Location',
-    value: 'Available Worldwide',
-    href: null,
-  },
-]
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+  const email = 'khaizerdn@gmail.com'
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopied(true)
+    } catch (err) {
+      console.error('Failed to copy email:', err)
+    }
+  }
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => {
+        setCopied(false)
+      }, 2000)
+      return () => clearTimeout(timer)
+    }
+  }, [copied])
+
   return (
     <section id="contact" className="py-20 md:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,81 +47,36 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {contactMethods.map((method, index) => {
-            const Icon = method.icon
-            const content = (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 text-center ${
-                  method.href ? 'cursor-pointer hover:scale-[1.02]' : ''
-                }`}
-              >
-                <div className="inline-flex p-4 rounded-xl bg-white text-black mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <Icon size={22} />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-white tracking-tight">
-                  {method.label}
-                </h3>
-                <p className="text-white text-sm font-light">{method.value}</p>
-              </motion.div>
-            )
-
-            return method.href ? (
-              <a
-                key={method.label}
-                href={method.href}
-                target={method.href.startsWith('http') ? '_blank' : undefined}
-                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              >
-                {content}
-              </a>
-            ) : (
-              <div key={method.label}>{content}</div>
-            )
-          })}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center px-4 mb-10"
+        >
+          <a
+            href="mailto:khaizerdn@gmail.com"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white font-extrabold inline-block hover:opacity-80 transition-opacity duration-300 break-all sm:break-normal"
+            style={{ lineHeight: '0.9' }}
+          >
+            {email}
+          </a>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center"
         >
-          <p className="text-white mb-4 text-sm font-light">
-            Prefer to use a contact form? You can integrate{' '}
-            <a
-              href="https://formspree.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline transition-colors"
-            >
-              Formspree
-            </a>
-            ,{' '}
-            <a
-              href="https://getform.io"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline transition-colors"
-            >
-              GetForm
-            </a>
-            , or{' '}
-            <a
-              href="https://www.netlify.com/products/forms/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white underline transition-colors"
-            >
-              Netlify Forms
-            </a>
-            .
-          </p>
+          <button
+            type="button"
+            onClick={copyToClipboard}
+            className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
+          >
+            {copied ? 'Email Address Copied' : 'Copy Email Address'}
+          </button>
         </motion.div>
       </div>
     </section>

@@ -76,12 +76,12 @@
 
 /* Smooth Scrollbar Styles */
 .scrollbar-track {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: transparent !important;
 }
 
 .scrollbar-track-x,
 .scrollbar-track-y {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: transparent !important;
 }
 
 .scrollbar-thumb {

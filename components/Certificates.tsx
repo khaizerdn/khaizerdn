@@ -92,8 +92,12 @@ const certificates: Certificate[] = [
 ]
 
 export default function Certificates() {
+  const [showAll, setShowAll] = useState(false)
   const [lightboxCertificate, setLightboxCertificate] = useState<Certificate | null>(null)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  const visibleCertificates = showAll ? certificates : certificates.slice(0, 6)
+  const remainingCertificates = certificates.length - visibleCertificates.length
 
   // Prevent background scroll and detach transforms while modal is open
   useEffect(() => {
@@ -185,7 +189,7 @@ export default function Certificates() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificates.map((certificate, index) => (
+            {visibleCertificates.map((certificate, index) => (
               <CertificateCard
                 key={certificate.title}
                 certificate={certificate}
@@ -194,6 +198,17 @@ export default function Certificates() {
               />
             ))}
           </div>
+          {remainingCertificates > 0 && (
+            <div className="mt-10 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
+              >
+                Show More {remainingCertificates} Certificates
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

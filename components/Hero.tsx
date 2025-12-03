@@ -9,6 +9,7 @@ export default function Hero() {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
 
   const quotes = [
+    "Always imagine ~",
     "We encounter problems not by accident, but because we are searching for something better.",
     "Life is art and creativity makes it interesting.",
   ]
@@ -75,9 +76,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-black overflow-hidden">
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
         <div className="text-center flex flex-col items-center gap-8">
           <motion.div

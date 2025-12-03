@@ -9,7 +9,7 @@ export default function Footer() {
             © {currentYear} khaizerdn. All rights reserved.
           </p>
           <p className="text-xs text-white font-light tracking-wide">
-            Built with Next.js, Tailwind CSS, and deployed on GitHub Pages
+            Thank you for visiting. Let's create something amazing together.
           </p>
         </div>
       </div>

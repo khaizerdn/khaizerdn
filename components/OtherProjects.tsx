@@ -4,44 +4,41 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
 
-const projects = [
+const otherProjects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'Personal Portfolio Experiments',
     description:
-      'A full-stack e-commerce platform built with Next.js, featuring user authentication, payment integration, and admin dashboard.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    github: 'https://github.com/khaizerdn/project-1',
-    live: 'https://project-1-demo.com',
-    image: '/api/placeholder/600/400',
+      'A collection of small UI experiments and layout explorations that influenced this portfolio design.',
+    technologies: ['Next.js', 'Framer Motion'],
+    github: 'https://github.com/khaizerdn',
+    live: 'https://github.com/khaizerdn?tab=repositories',
   },
   {
-    title: 'Task Management App',
+    title: 'Utility Scripts & CLI Tools',
     description:
-      'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    github: 'https://github.com/khaizerdn/project-2',
-    live: 'https://project-2-demo.com',
-    image: '/api/placeholder/600/400',
+      'Small scripts and command-line tools for automating repetitive tasks and improving productivity.',
+    technologies: ['Node.js', 'TypeScript'],
+    github: 'https://github.com/khaizerdn',
+    live: 'https://github.com/khaizerdn?tab=repositories',
   },
   {
-    title: 'Weather Dashboard',
+    title: 'Learning Projects',
     description:
-      'A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
-    technologies: ['React', 'Chart.js', 'OpenWeather API'],
-    github: 'https://github.com/khaizerdn/project-3',
-    live: 'https://project-3-demo.com',
-    image: '/api/placeholder/600/400',
+      'Practice projects used to explore new technologies, patterns, and ideas before using them in real work.',
+    technologies: ['React', 'APIs'],
+    github: 'https://github.com/khaizerdn',
+    live: 'https://github.com/khaizerdn?tab=repositories',
   },
 ]
 
-export default function Projects() {
+export default function OtherProjects() {
   const [showAll, setShowAll] = useState(false)
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 6)
-  const remaining = projects.length - visibleProjects.length
+  const visible = showAll ? otherProjects : otherProjects.slice(0, 6)
+  const remaining = otherProjects.length - visible.length
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-black">
+    <section id="other-projects" className="py-20 md:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,17 +49,17 @@ export default function Projects() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
             <span className="text-white">
-              Featured Projects
+              Other Projects
             </span>
           </h2>
           <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
           <p className="text-white max-w-2xl mx-auto text-lg font-light">
-            A collection of projects showcasing my skills and experience
+            Smaller experiments and learning projects that shaped how I build.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleProjects.map((project, index) => (
+          {visible.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
@@ -113,7 +110,7 @@ export default function Projects() {
                     className="flex items-center gap-2 text-sm text-white transition-colors duration-200 font-light group/link"
                   >
                     <ExternalLink size={16} className="group-hover/link:scale-110 transition-transform" />
-                    <span>Live Demo</span>
+                    <span>Explore</span>
                   </a>
                 </div>
               </div>
@@ -136,4 +133,5 @@ export default function Projects() {
     </section>
   )
 }
+
 
