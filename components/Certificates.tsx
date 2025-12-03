@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { assetPath } from '@/lib/utils'
 
 type Certificate = {
   title: string
@@ -15,7 +16,8 @@ type Certificate = {
   images?: string[]
 }
 
-const certificates: Certificate[] = [
+// Base certificate data with raw paths
+const certificatesData: Omit<Certificate, 'logo' | 'images'> & { logo?: string; images?: string[] }[] = [
   {
     title: 'LaunchPad Competition',
     issuer: 'Whitecloak Technologies Inc.',
@@ -90,6 +92,13 @@ const certificates: Certificate[] = [
   },
   // Add more certificates as needed
 ]
+
+// Process certificates with basePath-aware paths
+const certificates: Certificate[] = certificatesData.map((cert) => ({
+  ...cert,
+  logo: cert.logo ? assetPath(cert.logo) : undefined,
+  images: cert.images ? cert.images.map((img) => assetPath(img)) : undefined,
+}))
 
 export default function Certificates() {
   const [showAll, setShowAll] = useState(false)
