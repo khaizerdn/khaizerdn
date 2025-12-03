@@ -52,7 +52,7 @@ export default function Projects() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
             <span className="text-white">
-              Featured Projects
+              Projects
             </span>
           </h2>
           <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>

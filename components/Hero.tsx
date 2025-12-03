@@ -82,15 +82,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full px-4"
           >
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter" style={{ lineHeight: '0.9', minHeight: 'unset' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter break-words" style={{ lineHeight: '0.9', minHeight: 'unset' }}>
               <motion.span
                 key={hoveredUrl || 'default'}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="text-white font-extrabold inline-block"
+                className="text-white font-extrabold inline-block break-words"
               >
                 {(() => {
                   if (!hoveredUrl) return 'khaizerdn'
@@ -117,6 +118,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full px-4"
           >
             <div className="max-w-3xl mx-auto h-[3.5rem] md:h-[4rem] flex items-center justify-center">
               <AnimatePresence mode="wait">
@@ -126,7 +128,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-lg md:text-xl text-white font-light italic text-center px-4 leading-tight"
+                  className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light italic text-center px-2 sm:px-4 leading-tight break-words"
                   style={{ lineHeight: '1.5' }}
                 >
                   "{quotes[currentQuoteIndex]}"
@@ -155,6 +157,8 @@ export default function Hero() {
                       style={{ flexShrink: 0 }}
                       onMouseEnter={() => setHoveredUrl(social.href)}
                       onMouseLeave={() => setHoveredUrl(null)}
+                      onMouseDown={() => setHoveredUrl(social.href)}
+                      onTouchStart={() => setHoveredUrl(social.href)}
                     >
                       <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                       <Icon size={20} className="relative z-10 group-hover:brightness-150 transition-[filter] duration-300" />
