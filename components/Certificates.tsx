@@ -17,7 +17,7 @@ type Certificate = {
 }
 
 // Base certificate data with raw paths
-const certificatesData: Omit<Certificate, 'logo' | 'images'> & { logo?: string; images?: string[] }[] = [
+const certificatesData: (Omit<Certificate, 'logo' | 'images'> & { logo?: string; images?: string[] })[] = [
   {
     title: 'LaunchPad Competition',
     issuer: 'Whitecloak Technologies Inc.',
