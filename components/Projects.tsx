@@ -68,7 +68,9 @@ export default function Projects() {
               <div className="relative h-56 bg-white/5 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-white/30 text-xs font-light tracking-wider uppercase">Project Image</span>
+                  <span className="text-white/30 text-xs font-light tracking-wider uppercase">
+                    NO IMAGE PROVIDED
+                  </span>
                 </div>
               </div>
               <div className="p-8">

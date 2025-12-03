@@ -17,6 +17,18 @@ export default function SmoothScroll() {
       delegateTo: window,
     })
 
+    // Lock scroll position when a modal is open (html.modal-open)
+    let lockedY = scrollbar.scrollTop
+    scrollbar.addListener((status) => {
+      const html = document.documentElement
+      if (html.classList.contains('modal-open')) {
+        // keep page frozen at lockedY
+        scrollbar.setPosition(status.offset.x, lockedY)
+      } else {
+        lockedY = status.offset.y
+      }
+    })
+
     // Enable smooth scrolling for anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement

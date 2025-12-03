@@ -38,6 +38,20 @@
 }
 
 @layer utilities {
+  .modal-open body {
+    overflow: hidden !important;
+    transform: none !important;
+  }
+  .modal-open .scrollbar-track,
+  .modal-open .scrollbar-track-x,
+  .modal-open .scrollbar-track-y,
+  .modal-open .scrollbar-thumb,
+  .modal-open .scrollbar-thumb-x,
+  .modal-open .scrollbar-thumb-y {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
   .text-balance {
     text-wrap: balance;
   }
