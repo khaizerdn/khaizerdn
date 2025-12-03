@@ -100,13 +100,13 @@ export default function Hero() {
                   return (
                     <>
                       {parts.prefix && (
-                        <span className="opacity-30">{parts.prefix}</span>
+                        <span className="text-white opacity-30">{parts.prefix}</span>
                       )}
                       {parts.name && (
                         <span>{parts.name}</span>
                       )}
                       {parts.suffix && (
-                        <span className="opacity-30">{parts.suffix}</span>
+                        <span className="text-white opacity-30">{parts.suffix}</span>
                       )}
                     </>
                   )
@@ -128,7 +128,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-lg md:text-xl text-gray-400 font-light italic text-center px-4 leading-tight"
+                  className="text-lg md:text-xl text-white font-light italic text-center px-4 leading-tight"
                   style={{ lineHeight: '1.5' }}
                 >
                   "{quotes[currentQuoteIndex]}"
@@ -176,7 +176,7 @@ export default function Hero() {
           >
             <motion.a
               href="#about"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors duration-300 font-light tracking-wide"
+              className="inline-flex items-center gap-2 text-sm text-white transition-colors duration-300 font-light tracking-wide"
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             >

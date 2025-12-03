@@ -50,7 +50,7 @@ export default function Skills() {
             </span>
           </h2>
           <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+          <p className="text-white max-w-2xl mx-auto text-lg font-light">
             Technologies and tools I work with to bring ideas to life
           </p>
         </motion.div>
@@ -72,8 +72,8 @@ export default function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-gray-300 font-medium text-sm tracking-wide">{skill.name}</span>
-                      <span className="text-xs text-gray-500 font-light">{skill.level}%</span>
+                      <span className="text-white font-medium text-sm tracking-wide">{skill.name}</span>
+                      <span className="text-xs text-white font-light">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
                       <motion.div

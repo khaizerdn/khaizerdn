@@ -47,7 +47,7 @@ export default function Contact() {
             </span>
           </h2>
           <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+          <p className="text-white max-w-2xl mx-auto text-lg font-light">
             I'm always open to discussing new projects, creative ideas, or opportunities
             to be part of your visions. Feel free to reach out!
           </p>
@@ -72,7 +72,7 @@ export default function Contact() {
                 <h3 className="text-lg font-bold mb-2 text-white tracking-tight">
                   {method.label}
                 </h3>
-                <p className="text-gray-400 text-sm font-light">{method.value}</p>
+                <p className="text-white text-sm font-light">{method.value}</p>
               </motion.div>
             )
 
@@ -98,13 +98,13 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-400 mb-4 text-sm font-light">
+          <p className="text-white mb-4 text-sm font-light">
             Prefer to use a contact form? You can integrate{' '}
             <a
               href="https://formspree.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 underline transition-colors"
+              className="text-white underline transition-colors"
             >
               Formspree
             </a>
@@ -113,7 +113,7 @@ export default function Contact() {
               href="https://getform.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 underline transition-colors"
+              className="text-white underline transition-colors"
             >
               GetForm
             </a>
@@ -122,7 +122,7 @@ export default function Contact() {
               href="https://www.netlify.com/products/forms/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 underline transition-colors"
+              className="text-white underline transition-colors"
             >
               Netlify Forms
             </a>

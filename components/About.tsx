@@ -52,17 +52,17 @@ export default function About() {
               Passionate Software Engineer
             </h3>
             <div className="flex-grow">
-              <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
+              <p className="text-white mb-5 leading-relaxed text-lg font-light">
                 I'm a software engineer passionate about creating exceptional digital
                 experiences. With expertise in modern web technologies, I specialize in
                 building responsive, performant applications that solve real-world problems.
               </p>
-              <p className="text-gray-400 mb-5 leading-relaxed text-lg font-light">
+              <p className="text-white mb-5 leading-relaxed text-lg font-light">
                 My journey in software development has been driven by curiosity and a
                 commitment to continuous learning. I enjoy working with cutting-edge
                 technologies and contributing to open-source projects.
               </p>
-              <p className="text-gray-400 leading-relaxed text-lg font-light">
+              <p className="text-white leading-relaxed text-lg font-light">
                 When I'm not coding, you can find me exploring new technologies, reading
                 tech blogs, or contributing to the developer community.
               </p>
@@ -96,7 +96,7 @@ export default function About() {
                       <h4 className="text-xl font-bold mb-2 text-white tracking-tight">
                         {feature.title}
                       </h4>
-                      <p className="text-gray-400 font-light leading-relaxed">{feature.description}</p>
+                      <p className="text-white font-light leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
                 </motion.div>

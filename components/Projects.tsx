@@ -50,7 +50,7 @@ export default function Projects() {
             </span>
           </h2>
           <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+          <p className="text-white max-w-2xl mx-auto text-lg font-light">
             A collection of projects showcasing my skills and experience
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold mb-3 text-white tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-5 text-sm leading-relaxed font-light">
+                <p className="text-white mb-5 text-sm leading-relaxed font-light">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -93,7 +93,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-200 font-light group/link"
+                    className="flex items-center gap-2 text-sm text-white transition-colors duration-200 font-light group/link"
                   >
                     <Github size={16} className="group-hover/link:scale-110 transition-transform" />
                     <span>Code</span>
@@ -102,7 +102,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors duration-200 font-light group/link"
+                    className="flex items-center gap-2 text-sm text-white transition-colors duration-200 font-light group/link"
                   >
                     <ExternalLink size={16} className="group-hover/link:scale-110 transition-transform" />
                     <span>Live Demo</span>
