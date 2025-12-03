@@ -45,6 +45,7 @@ A Cum Laude graduate with a Bachelor's degree in Computer Engineering, skilled F
 
 ## Certifications  
 
+- Whitecloak Technologies: LaunchPad Competition - 2025
 - CREOTEC Philippines Internship – 2024  
 - Globe Business: AI-Driven Future of Manufacturing & Logistics – 2025  
 - Introduction to Design Thinking & SDGs – 2025
