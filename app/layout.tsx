@@ -10,18 +10,24 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const siteUrl = process.env.NODE_ENV === 'production' 
+  ? 'https://khaizerdn.github.io/khaizerdn' 
+  : 'http://localhost:3000'
+
 export const metadata: Metadata = {
   title: 'khaizerdn',
   description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
   keywords: ['portfolio', 'software engineer', 'web developer', 'next.js', 'react'],
   authors: [{ name: 'khaizerdn' }],
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: 'khaizerdn',
     description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
     type: 'website',
+    url: siteUrl,
     images: [
       {
-        url: '/og-image.jpg', // Place your image at public/og-image.jpg
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'khaizerdn - Software Engineer Portfolio',
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'khaizerdn',
     description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
-    images: ['/og-image.jpg'], // Same image for Twitter
+    images: ['/og-image.jpg'],
   },
 }
 
