@@ -104,7 +104,7 @@ export default function SimpleCardWithIconLayout({
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -130,7 +130,7 @@ export default function SimpleCardWithIconLayout({
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="mt-10 flex justify-center"
             >
               <button
@@ -259,7 +259,7 @@ const CardItem = memo(function CardItem({
         hasAnimated.current = true
       }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+      transition={{ duration: 0.6, delay: 0.15 + index * 0.05 }}
       className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
     >
       {hasImages ? (

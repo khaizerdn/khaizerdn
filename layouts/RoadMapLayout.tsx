@@ -29,7 +29,7 @@ export default function RoadMapLayout({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -50,7 +50,7 @@ export default function RoadMapLayout({
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.15 + index * 0.05 }}
                 className="relative flex items-start gap-8"
               >
                 {/* Timeline dot */}
