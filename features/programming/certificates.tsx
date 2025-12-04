@@ -4,9 +4,16 @@ import { useState } from 'react'
 import SimpleCardWithIconLayout from '@/layouts/SimpleCardWithIconLayout'
 import type { SimpleCardWithIconItem } from '@/layouts/SimpleCardWithIconLayout'
 
-// Import all certificate images
+// Helper function to get public asset path with basePath support
+const getPublicAssetPath = (path: string): string => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/khaizerdn' : ''
+  return `${basePath}/assets/features/programming/assets/${path}`
+}
+
+// Import all certificate images (except WhitecloakLaunchPad which has corrupted EXIF data)
 import whitecloakLogo from './assets/whitecloak.jpg'
-import whitecloakLaunchPad from './assets/WhitecloakLaunchPad.jpg'
+// WhitecloakLaunchPad.jpg has corrupted EXIF data, so we use it from public folder
+const whitecloakLaunchPadPath = getPublicAssetPath('WhitecloakLaunchPad.jpg')
 import cvsuCarmonaLogo from './assets/cvsucarmona.jpg'
 import studentResearchCongress1 from './assets/5thStudentResearchCongress.jpg'
 import studentResearchCongress2 from './assets/5thStudentResearchCongress1.jpg'
@@ -31,7 +38,7 @@ const certificatesData: SimpleCardWithIconItem[] = [
     year: '2025',
     description: 'Participated in the LaunchPad Competition showcasing innovative solutions.',
     logo: whitecloakLogo.src,
-    images: [whitecloakLaunchPad.src],
+    images: [whitecloakLaunchPadPath],
   },
   {
     title: '5th Student Research Congress',
