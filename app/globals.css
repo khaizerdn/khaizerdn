@@ -7,20 +7,6 @@
     overflow: hidden;
   }
   
-  /* Enable native smooth scrolling on mobile */
-  @media (max-width: 768px) {
-    html {
-      overflow: auto;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      overflow: auto;
-      height: auto;
-      min-height: 100vh;
-    }
-  }
-  
   body {
     @apply bg-black text-white antialiased;
     font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
@@ -31,6 +17,31 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
+  }
+  
+  /* Enable native smooth scrolling on mobile */
+  @media (max-width: 768px) {
+    html {
+      overflow: auto !important;
+      scroll-behavior: smooth;
+      height: auto;
+      min-height: 100%;
+    }
+    
+    body {
+      overflow: auto !important;
+      height: auto !important;
+      min-height: 100vh;
+      transform: none;
+      backface-visibility: visible;
+      perspective: none;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    
+    main {
+      min-height: 100vh;
+      padding-bottom: 1rem;
+    }
   }
   
   /* Optimize all elements for smooth scrolling */
