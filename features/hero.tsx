@@ -3,10 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram } from 'lucide-react'
+import { useTheme, type Theme } from '@/lib/theme-context'
 
 export default function Hero() {
+  const { theme, setTheme } = useTheme()
   const [hoveredUrl, setHoveredUrl] = useState<string | null>(null)
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
+
+  const themes: Theme[] = ['Programming', 'Creative', 'Leadership', 'Other']
 
   const quotes = [
     "Always imagine ~",
@@ -134,6 +138,29 @@ export default function Hero() {
                   "{quotes[currentQuoteIndex]}"
                 </motion.p>
               </AnimatePresence>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full px-4 mb-6 sm:mb-8 md:mb-10"
+          >
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {themes.map((themeOption) => (
+                <button
+                  key={themeOption}
+                  onClick={() => setTheme(themeOption)}
+                  className={`px-4 sm:px-6 py-2 sm:py-2.5 text-sm sm:text-base font-light rounded-full border transition-all duration-300 ${
+                    theme === themeOption
+                      ? 'bg-white text-black border-white'
+                      : 'bg-white/5 text-white border-white/20 hover:bg-white/10 hover:border-white/30'
+                  }`}
+                >
+                  {themeOption}
+                </button>
+              ))}
             </div>
           </motion.div>
 

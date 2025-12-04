@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Footer from '@/components/Footer'
-import SmoothScroll from '@/components/SmoothScroll'
+import Footer from '@/features/footer'
+import SmoothScroll from '@/lib/smooth-scroll'
+import { ThemeProvider } from '@/lib/theme-context'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -35,11 +36,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
-        <SmoothScroll />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <SmoothScroll />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
