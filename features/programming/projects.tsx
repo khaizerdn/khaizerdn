@@ -7,6 +7,11 @@ import doxionImage from './assets/Doxion.png'
 import doxionImage1 from './assets/Doxion1.png'
 import doxionImage3 from './assets/Doxion3.jpg'
 import doxionImage4 from './assets/Doxion4.jpg'
+import tweetheartImage from './assets/Tweetheart.png'
+import tweetheartImage1 from './assets/Tweetheart1.png'
+import tweetheartImage2 from './assets/Tweetheart2.png'
+import tweetheartImage3 from './assets/Tweetheart3.png'
+import tweetheartImage4 from './assets/Tweetheart4.png'
 
 // Data is inside this component
 const projectsData: SimpleCardItem[] = [
@@ -27,6 +32,39 @@ const projectsData: SimpleCardItem[] = [
     ],
     github: 'https://github.com/khaizerdn/Doxion',
     images: [doxionImage.src, doxionImage1.src, doxionImage3.src, doxionImage4.src],
+  },
+  {
+    title: 'Tweetheart',
+    description:
+      'A complete MVP dating application made during the Whitecloak LaunchPad Competition.',
+    technologies: [
+      'React',
+      'React Router',
+      'Axios',
+      'Socket.IO Client',
+      'CSS Modules',
+      'Vite',
+      'Node.js',
+      'Express',
+      'MariaDB',
+      'JWT',
+      'bcrypt',
+      'Socket.IO',
+      'Multer',
+      'Sharp',
+      'AWS SDK',
+      'Nodemailer',
+      'AWS S3',
+    ],
+    github: 'https://github.com/khaizerdn/Tweetheart',
+    live: 'https://khaizerdn.github.io/Tweetheart/',
+    images: [
+      tweetheartImage.src,
+      tweetheartImage1.src,
+      tweetheartImage2.src,
+      tweetheartImage3.src,
+      tweetheartImage4.src,
+    ],
   },
 ]
 
