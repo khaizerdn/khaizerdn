@@ -11,19 +11,28 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'khaizerdn | Software Engineer Portfolio',
-  description: 'Personal portfolio website showcasing projects, skills, and experience as a software engineer.',
+  title: 'khaizerdn',
+  description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
   keywords: ['portfolio', 'software engineer', 'web developer', 'next.js', 'react'],
   authors: [{ name: 'khaizerdn' }],
   openGraph: {
-    title: 'khaizerdn | Software Engineer Portfolio',
-    description: 'Personal portfolio website showcasing projects, skills, and experience.',
+    title: 'khaizerdn',
+    description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
     type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg', // Place your image at public/og-image.jpg
+        width: 1200,
+        height: 630,
+        alt: 'khaizerdn - Software Engineer Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'khaizerdn | Software Engineer Portfolio',
-    description: 'Personal portfolio website showcasing projects, skills, and experience.',
+    title: 'khaizerdn',
+    description: "Hi, I'm Khaizer, a software engineer passionate about building innovative solutions and creating meaningful digital experiences.",
+    images: ['/og-image.jpg'], // Same image for Twitter
   },
 }
 
