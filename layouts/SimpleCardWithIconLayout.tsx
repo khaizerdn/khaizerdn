@@ -98,7 +98,7 @@ export default function SimpleCardWithIconLayout({
 
   return (
     <>
-      <section id={id} className="py-20 md:py-32 bg-black">
+      <section id={id} className="py-12 md:py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,13 @@ export default function SimpleCardWithIconLayout({
           </div>
 
           {remaining > 0 && onShowMore && (
-            <div className="mt-10 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-10 flex justify-center"
+            >
               <button
                 type="button"
                 onClick={onShowMore}
@@ -134,7 +140,7 @@ export default function SimpleCardWithIconLayout({
               >
                 Show More {remaining} Items
               </button>
-            </div>
+            </motion.div>
           )}
         </div>
       </section>

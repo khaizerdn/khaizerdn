@@ -9,7 +9,7 @@ export default function Contact() {
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-black">
+    <section id="contact" className="py-12 md:py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center"
+          className="flex justify-center mb-16"
         >
           <a
             href={gmailComposeUrl}
@@ -60,6 +60,21 @@ export default function Contact() {
           >
             Send Email
           </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center"
+        >
+          <p className="mb-3 text-sm font-light text-white">
+            © {new Date().getFullYear()} khaizerdn. All rights reserved.
+          </p>
+          <p className="text-xs text-white/70 font-light tracking-wide">
+            Thank you for visiting. Let's create something amazing together.
+          </p>
         </motion.div>
       </div>
     </section>

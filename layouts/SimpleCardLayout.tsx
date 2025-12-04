@@ -107,7 +107,7 @@ export default function SimpleCardLayout({
 
   return (
     <>
-      <section id={id} className="py-20 md:py-32 bg-black">
+      <section id={id} className="py-12 md:py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,13 @@ export default function SimpleCardLayout({
           </div>
 
           {remaining > 0 && onShowMore && (
-            <div className="mt-10 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-10 flex justify-center"
+            >
               <button
                 type="button"
                 onClick={onShowMore}
@@ -143,7 +149,7 @@ export default function SimpleCardLayout({
               >
                 Show More {remaining} Items
               </button>
-            </div>
+            </motion.div>
           )}
         </div>
       </section>
@@ -266,11 +272,11 @@ const CardItem = memo(function CardItem({
       }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden flex flex-col"
     >
       {hasImages ? (
         <div 
-          className="relative h-56 bg-white/5 overflow-hidden cursor-pointer"
+          className="relative h-56 bg-white/5 overflow-hidden cursor-pointer flex-shrink-0"
           onClick={() => onCardClick(item, currentImageIndex)}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
@@ -319,7 +325,7 @@ const CardItem = memo(function CardItem({
           )}
         </div>
       ) : (
-        <div className="relative h-56 bg-white/5 overflow-hidden">
+        <div className="relative h-56 bg-white/5 overflow-hidden flex-shrink-0">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-white/30 text-xs font-light tracking-wider uppercase">
@@ -328,23 +334,25 @@ const CardItem = memo(function CardItem({
           </div>
         </div>
       )}
-      <div className="p-8">
-        <h3 className="text-xl font-bold mb-3 text-white tracking-tight">{item.title}</h3>
-        <p className="text-white mb-5 text-sm leading-relaxed font-light">{item.description}</p>
-        {item.technologies && item.technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
-            {item.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 text-xs font-medium bg-white text-black rounded-full tracking-wide"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        )}
+      <div className="p-8 flex flex-col flex-grow min-h-0">
+        <div className="flex-grow">
+          <h3 className="text-xl font-bold mb-3 text-white tracking-tight">{item.title}</h3>
+          <p className="text-white mb-5 text-sm leading-relaxed font-light">{item.description}</p>
+          {item.technologies && item.technologies.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-6">
+              {item.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1.5 text-xs font-medium bg-white text-black rounded-full tracking-wide"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
         {(item.github || item.live) && (
-          <div className="flex gap-6">
+          <div className="flex gap-6 mt-auto">
             {item.github && (
               <a
                 href={item.github}

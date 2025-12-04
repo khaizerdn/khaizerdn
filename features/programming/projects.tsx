@@ -66,6 +66,23 @@ const projectsData: SimpleCardItem[] = [
       tweetheartImage4.src,
     ],
   },
+  {
+    title: 'Shuttlecav',
+    description:
+      'A mobile application developed for residents of Carmona Estates to track transportation usage and manage credit loading. The system integrates with NFC cards, which are linked to the mobile app users account.',
+    technologies: [
+      'React',
+      'React Native',
+      'Expo',
+      'Node.js',
+      'MySQL',
+      'Raspberry Pi 4B',
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+    ],
+    github: 'https://github.com/khaizerdn/Shuttlecav',
+  },
 ]
 
 export default function ProgrammingProjects() {

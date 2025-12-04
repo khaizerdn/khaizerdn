@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Footer from '@/features/footer'
 import SmoothScroll from '@/lib/smooth-scroll'
 import { ThemeProvider } from '@/lib/theme-context'
 
@@ -41,7 +40,6 @@ export default function RootLayout({
           <main className="min-h-screen">
             {children}
           </main>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
