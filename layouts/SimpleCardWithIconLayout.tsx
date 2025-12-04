@@ -262,17 +262,25 @@ const CardItem = memo(function CardItem({
           onClick={() => onCardClick(item, currentImageIndex)}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
-          <div className="absolute inset-0">
-            <Image
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
               key={currentImageSrc}
-              src={currentImageSrc!}
-              alt={item.title}
-              fill
-              className="object-cover transition-opacity duration-300"
-              onError={() => setImageError(true)}
-              priority={index < 3}
-            />
-          </div>
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={currentImageSrc!}
+                alt={item.title}
+                fill
+                className="object-cover"
+                onError={() => setImageError(true)}
+                priority={index < 3}
+              />
+            </motion.div>
+          </AnimatePresence>
           {item.images!.length > 1 && (
             <>
               <button
