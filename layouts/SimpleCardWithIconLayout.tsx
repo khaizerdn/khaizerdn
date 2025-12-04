@@ -246,11 +246,13 @@ function CardItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden cursor-pointer"
-      onClick={() => onCardClick(item, currentImageIndex)}
+      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
     >
       {hasImages ? (
-        <div className="relative h-56 bg-white/5 overflow-hidden">
+        <div 
+          className="relative h-56 bg-white/5 overflow-hidden cursor-pointer"
+          onClick={() => onCardClick(item, currentImageIndex)}
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
           <AnimatePresence mode="wait">
             <motion.div

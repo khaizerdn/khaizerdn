@@ -3,35 +3,30 @@
 import { useState } from 'react'
 import SimpleCardLayout from '@/layouts/SimpleCardLayout'
 import type { SimpleCardItem } from '@/layouts/SimpleCardLayout'
+import doxionImage from './assets/Doxion.png'
+import doxionImage1 from './assets/Doxion1.png'
+import doxionImage3 from './assets/Doxion3.jpg'
+import doxionImage4 from './assets/Doxion4.jpg'
 
 // Data is inside this component
 const projectsData: SimpleCardItem[] = [
   {
-    title: 'E-Commerce Platform',
+    title: 'Doxion',
     description:
-      'A full-stack e-commerce platform built with Next.js, featuring user authentication, payment integration, and admin dashboard.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    github: 'https://github.com/khaizerdn/project-1',
-    live: 'https://project-1-demo.com',
-    image: '/api/placeholder/600/400',
-  },
-  {
-    title: 'Task Management App',
-    description:
-      'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    github: 'https://github.com/khaizerdn/project-2',
-    live: 'https://project-2-demo.com',
-    image: '/api/placeholder/600/400',
-  },
-  {
-    title: 'Weather Dashboard',
-    description:
-      'A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
-    technologies: ['React', 'Chart.js', 'OpenWeather API'],
-    github: 'https://github.com/khaizerdn/project-3',
-    live: 'https://project-3-demo.com',
-    image: '/api/placeholder/600/400',
+      'A document submission system of Cavite State University, integrated with kiosk interfaces and scalable smart lockers powered by Raspberry Pi and ESP8266, significantly improving operational efficiency for students and faculty.',
+    technologies: [
+      'React',
+      'Node.js',
+      'MySQL',
+      'C++',
+      'Raspberry Pi 4B',
+      'ESP8266',
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+    ],
+    github: 'https://github.com/khaizerdn/Doxion',
+    images: [doxionImage.src, doxionImage1.src, doxionImage3.src, doxionImage4.src],
   },
 ]
 
