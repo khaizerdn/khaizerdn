@@ -9,7 +9,7 @@ export default function Contact() {
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
 
   return (
-    <section id="contact" className="py-20 md:py-32 pb-24 md:pb-32 bg-black">
+    <section id="contact" className="pt-20 md:pt-32 pb-16 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export default function Contact() {
           className="text-center px-4 mb-16"
         >
           <span
-            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white font-extrabold inline-block break-all sm:break-normal"
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-normal text-white font-extrabold inline-block break-all sm:break-normal"
             style={{ lineHeight: '0.9' }}
           >
             {email}

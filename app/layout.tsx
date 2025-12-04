@@ -51,10 +51,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className={inter.className}>
         <ThemeProvider>
-          <SmoothScroll />
-          <main className="min-h-screen">
-            {children}
-          </main>
+        <SmoothScroll />
+        <main className="min-h-screen">
+          {children}
+        </main>
         </ThemeProvider>
       </body>
     </html>

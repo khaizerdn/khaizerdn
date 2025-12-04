@@ -19,7 +19,7 @@ const projectsData: SimpleCardItem[] = [
   {
     title: 'Doxion',
     description:
-      'A document submission system of Cavite State University, integrated with kiosk interfaces and scalable smart lockers powered by Raspberry Pi and ESP8266, significantly improving operational efficiency for students and faculty.',
+      'Document submission system for Cavite State University, integrated with kiosk interfaces and scalable smart lockers powered by Raspberry Pi and ESP8266, significantly improving operational efficiency for students and faculty.',
     technologies: [
       'React',
       'Node.js',
@@ -37,24 +37,13 @@ const projectsData: SimpleCardItem[] = [
   {
     title: 'Tweetheart',
     description:
-      'A complete MVP dating application made during the Whitecloak LaunchPad Competition.',
+      'Modern, secure dating application built with React, Node.js, Express, MariaDB, and AWS S3. Implements enterprise-grade security features, real-time communication, and a seamless user experience for matching and connecting with others.',
     technologies: [
       'React',
-      'React Router',
-      'Axios',
-      'Socket.IO Client',
-      'CSS Modules',
-      'Vite',
       'Node.js',
       'Express',
       'MariaDB',
-      'JWT',
-      'bcrypt',
       'Socket.IO',
-      'Multer',
-      'Sharp',
-      'AWS SDK',
-      'Nodemailer',
       'AWS S3',
     ],
     github: 'https://github.com/khaizerdn/Tweetheart',
@@ -70,7 +59,7 @@ const projectsData: SimpleCardItem[] = [
   {
     title: 'Shuttlecav',
     description:
-      'A mobile application developed for residents of Carmona Estates to track transportation usage and manage credit loading. The system integrates with NFC cards, which are linked to the mobile app users account.',
+      'Mobile application developed for residents of Carmona Estates to track transportation usage and manage credit loading. The system integrates with NFC cards, which are linked to the mobile app users account.',
     technologies: [
       'React',
       'React Native',
@@ -87,7 +76,7 @@ const projectsData: SimpleCardItem[] = [
   {
     title: 'SHIELD',
     description:
-      'A desktop application using React and Electron for SHIELD Computer Engineering Organization, enhancing digital engagement and enabling member management with search, filter, and membership status tracking.',
+      'Desktop application built with React and Electron for SHIELD Computer Engineering Organization, enhancing digital engagement and enabling member management with search, filter, and membership status tracking.',
     technologies: [
       'React',
       'Electron',
@@ -116,7 +105,7 @@ export default function ProgrammingProjects() {
   return (
     <SimpleCardLayout
       title="Projects"
-      description="A collection of projects showcasing my programming expertise"
+      description="Collection of projects showcasing my programming expertise"
       items={visibleProjects}
       id="projects"
       showAll={visibleCount >= totalCards}

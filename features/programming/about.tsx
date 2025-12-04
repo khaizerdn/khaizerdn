@@ -6,11 +6,10 @@ import { Code, Coffee, Rocket } from 'lucide-react'
 
 // Data is inside this component
 const aboutContent = {
-  title: 'Passionate Software Engineer',
+  title: 'Hi, I\'m Khaizer!',
   paragraphs: [
-    "I'm a software engineer passionate about creating exceptional digital experiences. With expertise in modern web technologies, I specialize in building responsive, performant applications that solve real-world problems.",
-    "My journey in software development has been driven by curiosity and a commitment to continuous learning. I enjoy working with cutting-edge technologies and contributing to open-source projects.",
-    "When I'm not coding, you can find me exploring new technologies, reading tech blogs, or contributing to the developer community.",
+    "A Cum Laude graduate with Bachelor's degree in Computer Engineering, skilled Full-Stack Developer, and experienced in cloud platforms such as AWS and Hetzner. With proven track record in building complete web, mobile, and desktop applications, with additional experience in game development using Unity and Lua.",
+    "I believe in continuous learning, critical thinking, and the philosophy of Ikigai, finding what I love, what I'm good at, what the world needs, and what I can be paid for. I embrace continuous improvement and view problems as opportunities to create something better.",
   ],
 }
 

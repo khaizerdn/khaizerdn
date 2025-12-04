@@ -324,32 +324,36 @@ const CardItem = memo(function CardItem({
         </div>
       )}
       <div className="p-8">
-        <div className="flex items-start gap-4 mb-3">
+        <div className="flex items-center gap-3 mb-4">
           {item.logo && (
-            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-white flex items-center justify-center overflow-hidden border border-white/10">
+            <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-white/10">
               <Image
                 src={item.logo}
                 alt={item.issuer || item.title}
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 className="object-contain"
               />
             </div>
           )}
-          <h3 className="text-xl font-bold text-white tracking-tight flex-1 min-w-0 pt-0.5">{item.title}</h3>
+          {item.issuer && (
+            <div className="flex-1 min-w-0">
+              <p className="text-white/70 text-sm font-light">
+                {item.issuerUrl ? (
+                  <a href={item.issuerUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    {item.issuer}
+                  </a>
+                ) : (
+                  item.issuer
+                )}
+              </p>
+              {item.year && (
+                <p className="text-white/60 text-xs font-light mt-0.5">{item.year}</p>
+              )}
+            </div>
+          )}
         </div>
-        {item.issuer && (
-          <p className="text-white/70 text-sm mb-2 font-light">
-            {item.issuerUrl ? (
-              <a href={item.issuerUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                {item.issuer}
-              </a>
-            ) : (
-              item.issuer
-            )}
-            {item.year && ` • ${item.year}`}
-          </p>
-        )}
+        <h3 className="text-xl font-bold text-white tracking-tight mb-4">{item.title}</h3>
         {item.description && (
           <p className="text-white/80 text-sm leading-relaxed font-light">{item.description}</p>
         )}
