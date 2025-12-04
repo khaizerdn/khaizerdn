@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, memo, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -75,31 +75,31 @@ export default function SimpleCardLayout({
     }
   }, [lightboxItem])
 
-  const handleCardClick = (item: SimpleCardItem, startIndex: number) => {
+  const handleCardClick = useCallback((item: SimpleCardItem, startIndex: number) => {
     const imageSources = item.images || (item.image ? [item.image] : [])
     if (imageSources.length === 0) return
     setLightboxItem(item)
     setLightboxIndex(startIndex)
-  }
+  }, [])
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setLightboxItem(null)
     setLightboxIndex(0)
-  }
+  }, [])
 
-  const showPrevImage = () => {
+  const showPrevImage = useCallback(() => {
     if (!lightboxItem) return
     const imageSources = lightboxItem.images || (lightboxItem.image ? [lightboxItem.image] : [])
     if (imageSources.length === 0) return
     setLightboxIndex((prev) => (prev === 0 ? imageSources.length - 1 : prev - 1))
-  }
+  }, [lightboxItem])
 
-  const showNextImage = () => {
+  const showNextImage = useCallback(() => {
     if (!lightboxItem) return
     const imageSources = lightboxItem.images || (lightboxItem.image ? [lightboxItem.image] : [])
     if (imageSources.length === 0) return
     setLightboxIndex((prev) => (prev + 1) % imageSources.length)
-  }
+  }, [lightboxItem])
 
   const lightboxImageSources = lightboxItem
     ? lightboxItem.images || (lightboxItem.image ? [lightboxItem.image] : [])
@@ -226,7 +226,7 @@ export default function SimpleCardLayout({
   )
 }
 
-function CardItem({
+const CardItem = memo(function CardItem({
   item,
   index,
   onCardClick,
@@ -252,10 +252,18 @@ function CardItem({
     setCurrentImageIndex((prev) => (prev === 0 ? imageSources.length - 1 : prev - 1))
   }
 
+  const currentImageSrc = imageSources[currentImageIndex]
+
+  const hasAnimated = useRef(false)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
+      animate={hasAnimated.current ? { opacity: 1, y: 0 } : {}}
       whileInView={{ opacity: 1, y: 0 }}
+      onViewportEnter={() => {
+        hasAnimated.current = true
+      }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
       className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
@@ -266,24 +274,17 @@ function CardItem({
           onClick={() => onCardClick(item, currentImageIndex)}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={imageSources[currentImageIndex]}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={imageSources[currentImageIndex]}
-                alt={item.title}
-                fill
-                className="object-cover"
-                onError={() => setImageError(true)}
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div className="absolute inset-0">
+            <Image
+              key={currentImageSrc}
+              src={currentImageSrc}
+              alt={item.title}
+              fill
+              className="object-cover transition-opacity duration-300"
+              onError={() => setImageError(true)}
+              priority={index < 3}
+            />
+          </div>
           {imageSources.length > 1 && (
             <>
               <button
@@ -363,4 +364,4 @@ function CardItem({
       </div>
     </motion.div>
   )
-}
+})
