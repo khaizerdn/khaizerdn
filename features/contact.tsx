@@ -1,29 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Contact() {
-  const [copied, setCopied] = useState(false)
   const email = 'khaizerdn@gmail.com'
-
-  const copyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(email)
-      setCopied(true)
-    } catch (err) {
-      console.error('Failed to copy email:', err)
-    }
-  }
-
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => {
-        setCopied(false)
-      }, 2000)
-      return () => clearTimeout(timer)
-    }
-  }, [copied])
+  
+  // Gmail compose URL with pre-filled recipient
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-black">
@@ -54,13 +37,12 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="text-center px-4 mb-10"
         >
-          <a
-            href="mailto:khaizerdn@gmail.com"
-            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white font-extrabold inline-block hover:opacity-80 transition-opacity duration-300 break-all sm:break-normal"
+          <span
+            className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white font-extrabold inline-block break-all sm:break-normal"
             style={{ lineHeight: '0.9' }}
           >
             {email}
-          </a>
+          </span>
         </motion.div>
 
         <motion.div
@@ -70,13 +52,14 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex justify-center"
         >
-          <button
-            type="button"
-            onClick={copyToClipboard}
-            className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
+          <a
+            href={gmailComposeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out inline-block"
           >
-            {copied ? 'Email Address Copied' : 'Copy Email Address'}
-          </button>
+            Send Email
+          </a>
         </motion.div>
       </div>
     </section>

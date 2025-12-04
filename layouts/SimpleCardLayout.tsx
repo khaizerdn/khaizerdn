@@ -39,8 +39,8 @@ export default function SimpleCardLayout({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -55,8 +55,9 @@ export default function SimpleCardLayout({
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
             >
               <div className="relative h-56 bg-white/5 overflow-hidden">
