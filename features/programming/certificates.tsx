@@ -113,7 +113,7 @@ export default function ProgrammingCertificates() {
   return (
     <SimpleCardWithIconLayout
       title="Certificates"
-      description="Technical certifications and achievements in software development"
+      description="Certifications and achievements in software development"
       items={visibleCertificates}
       id="certificates"
       showAll={showAll}

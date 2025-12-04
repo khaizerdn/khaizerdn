@@ -35,7 +35,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center px-4 mb-10"
+          className="text-center px-4 mb-16"
         >
           <span
             className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white font-extrabold inline-block break-all sm:break-normal"
@@ -56,7 +56,7 @@ export default function Contact() {
             href={gmailComposeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out inline-block"
+            className="text-lg md:text-xl font-light text-white border-2 border-white/20 rounded-full px-8 py-4 hover:bg-white hover:text-black transition-all duration-300 ease-out inline-block"
           >
             Send Email
           </a>

@@ -43,7 +43,7 @@ export default function ProgrammingProjects() {
   return (
     <SimpleCardLayout
       title="Projects"
-      description="A collection of projects showcasing my technical skills and programming expertise"
+      description="A collection of projects showcasing my programming expertise"
       items={visibleProjects}
       id="projects"
       showAll={showAll}
