@@ -37,7 +37,8 @@ export default function SimpleCardWithIconLayout({
 }: SimpleCardWithIconLayoutProps) {
   const [lightboxItem, setLightboxItem] = useState<SimpleCardWithIconItem | null>(null)
   const [lightboxIndex, setLightboxIndex] = useState(0)
-  const visibleItems = showAll ? items : items.slice(0, 6)
+  // Use items directly since they're already sliced in the parent component
+  const visibleItems = items
 
   // Prevent background scroll while modal is open
   useEffect(() => {
@@ -138,7 +139,7 @@ export default function SimpleCardWithIconLayout({
                 onClick={onShowMore}
                 className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
               >
-                Show More {remaining} Items
+                Show More
               </button>
             </motion.div>
           )}
@@ -323,7 +324,20 @@ const CardItem = memo(function CardItem({
         </div>
       )}
       <div className="p-8">
-        <h3 className="text-xl font-bold mb-2 text-white tracking-tight">{item.title}</h3>
+        <div className="flex items-start gap-4 mb-3">
+          {item.logo && (
+            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-white flex items-center justify-center overflow-hidden border border-white/10">
+              <Image
+                src={item.logo}
+                alt={item.issuer || item.title}
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+            </div>
+          )}
+          <h3 className="text-xl font-bold text-white tracking-tight flex-1 min-w-0 pt-0.5">{item.title}</h3>
+        </div>
         {item.issuer && (
           <p className="text-white/70 text-sm mb-2 font-light">
             {item.issuerUrl ? (

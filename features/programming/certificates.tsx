@@ -106,9 +106,15 @@ const certificatesData: SimpleCardWithIconItem[] = [
 ]
 
 export default function ProgrammingCertificates() {
-  const [showAll, setShowAll] = useState(false)
-  const visibleCertificates = showAll ? certificatesData : certificatesData.slice(0, 6)
-  const remaining = certificatesData.length - visibleCertificates.length
+  const [visibleCount, setVisibleCount] = useState(3)
+  const totalCards = certificatesData.length
+  const visibleCertificates = certificatesData.slice(0, visibleCount)
+  const remaining = totalCards - visibleCount
+  
+  const handleShowMore = () => {
+    // Reveal 3 cards at a time
+    setVisibleCount(prev => Math.min(prev + 3, totalCards))
+  }
 
   return (
     <SimpleCardWithIconLayout
@@ -116,8 +122,8 @@ export default function ProgrammingCertificates() {
       description="Certifications and achievements in software development"
       items={visibleCertificates}
       id="certificates"
-      showAll={showAll}
-      onShowMore={remaining > 0 ? () => setShowAll(true) : undefined}
+      showAll={visibleCount >= totalCards}
+      onShowMore={remaining > 0 ? handleShowMore : undefined}
       remaining={remaining}
     />
   )
