@@ -50,7 +50,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center mb-16"
+          className="flex justify-center"
         >
           <a
             href={gmailComposeUrl}
@@ -60,21 +60,6 @@ export default function Contact() {
           >
             Send Email
           </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center"
-        >
-          <p className="mb-3 text-sm font-light text-white">
-            © {new Date().getFullYear()} khaizerdn. All rights reserved.
-          </p>
-          <p className="text-xs text-white/70 font-light tracking-wide">
-            Thank you for visiting. Let's create something amazing together.
-          </p>
         </motion.div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { useTheme } from '@/lib/theme-context'
 import Hero from '@/features/hero'
 import Contact from '@/features/contact'
+import Footer from '@/features/footer'
 import ProgrammingMain from '@/features/programming/main'
 import CreativeMain from '@/features/creative/main'
 import LeadershipMain from '@/features/leadership/main'
@@ -29,6 +30,7 @@ export default function Home() {
       <Hero />
       {renderThemeContent()}
       <Contact />
+      <Footer />
     </>
   )
 }
