@@ -7,6 +7,20 @@
     overflow: hidden;
   }
   
+  /* Enable native smooth scrolling on mobile */
+  @media (max-width: 768px) {
+    html {
+      overflow: auto;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      overflow: auto;
+      height: auto;
+      min-height: 100vh;
+    }
+  }
+  
   body {
     @apply bg-black text-white antialiased;
     font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
