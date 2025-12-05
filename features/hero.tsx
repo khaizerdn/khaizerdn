@@ -139,7 +139,20 @@ export default function Hero() {
                   className="text-sm sm:text-base md:text-lg lg:text-xl text-white font-light italic text-center px-2 sm:px-4 leading-tight break-words"
                   style={{ lineHeight: '1.5' }}
                 >
-                  "{quotes[currentQuoteIndex]}"
+                  {(() => {
+                    const quote = quotes[currentQuoteIndex]
+                    const tildeIndex = quote.indexOf(' ~ ')
+                    if (tildeIndex !== -1) {
+                      const quoteText = quote.substring(0, tildeIndex)
+                      const attribution = quote.substring(tildeIndex + 3)
+                      return (
+                        <>
+                          "{quoteText}" ~ {attribution}
+                        </>
+                      )
+                    }
+                    return `"${quote}"`
+                  })()}
                 </motion.p>
               </AnimatePresence>
             </div>
