@@ -5,6 +5,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram } from 'lucide-react'
 import { useTheme, type Theme } from '@/lib/theme-context'
 
+// Auto-hover configuration for header
+const AUTO_HOVER_CONFIG = {
+  enabled: false, // Enable/disable auto-hover feature
+  interval: 3000, // Time in milliseconds between each hover (3 seconds)
+  resumeDelay: 500, // Delay in milliseconds before resuming auto-hover after manual hover (0.5 seconds)
+  hoverableParts: ['khai', 'zer', 'd', 'n'], // Parts of the name to auto-hover
+} as const
+
 export default function Hero() {
   const { theme, setTheme } = useTheme()
   const [hoveredUrl, setHoveredUrl] = useState<string | null>(null)
@@ -69,6 +77,11 @@ export default function Hero() {
 
   // Auto-hover loop for name parts
   useEffect(() => {
+    // Don't run if auto-hover is disabled
+    if (!AUTO_HOVER_CONFIG.enabled) {
+      return
+    }
+
     // Clear any existing interval
     if (autoHoverIntervalRef.current) {
       clearInterval(autoHoverIntervalRef.current)
@@ -79,7 +92,7 @@ export default function Hero() {
       return
     }
 
-    const hoverableParts = ['khai', 'zer', 'd', 'n']
+    const hoverableParts = AUTO_HOVER_CONFIG.hoverableParts
     
     // Set initial hover
     setHoveredLetter(hoverableParts[autoHoverIndexRef.current])
@@ -87,7 +100,7 @@ export default function Hero() {
     autoHoverIntervalRef.current = setInterval(() => {
       autoHoverIndexRef.current = (autoHoverIndexRef.current + 1) % hoverableParts.length
       setHoveredLetter(hoverableParts[autoHoverIndexRef.current])
-    }, 3000) // 3 seconds per item
+    }, AUTO_HOVER_CONFIG.interval)
 
     return () => {
       if (autoHoverIntervalRef.current) {
@@ -209,7 +222,7 @@ export default function Hero() {
                                 autoHoverTimeoutRef.current = setTimeout(() => {
                                   setIsAutoHoverPaused(false)
                                   setHoveredLetter(null)
-                                }, 500)
+                                }, AUTO_HOVER_CONFIG.resumeDelay)
                               }}
                             >
                               <span className={isHoverable ? `cursor-pointer transition-opacity ${shouldHighlight ? 'opacity-70' : ''}` : ''}>
