@@ -327,9 +327,14 @@ export default function Hero() {
                   }`}
                   aria-label={themeOption}
                 >
-                  <div className="w-6 h-6 sm:w-7 sm:h-7">
+                  <motion.div
+                    className="w-6 h-6 sm:w-7 sm:h-7"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  >
                     {themeIcons[themeOption]}
-                  </div>
+                  </motion.div>
                 </button>
               ))}
             </div>
