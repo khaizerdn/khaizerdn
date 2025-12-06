@@ -10,6 +10,10 @@ export default function Hero() {
   const [hoveredUrl, setHoveredUrl] = useState<string | null>(null)
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
   const [hoveredLetter, setHoveredLetter] = useState<string | null>(null)
+  const [isAutoHoverPaused, setIsAutoHoverPaused] = useState(false)
+  const autoHoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const autoHoverIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const autoHoverIndexRef = useRef(0)
 
   const themes: Theme[] = ['Programming', 'Creative', 'Leadership', 'Other']
 
@@ -53,6 +57,45 @@ export default function Hero() {
 
     return () => clearInterval(interval)
   }, [quotes.length])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (autoHoverTimeoutRef.current) {
+        clearTimeout(autoHoverTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  // Auto-hover loop for name parts
+  useEffect(() => {
+    // Clear any existing interval
+    if (autoHoverIntervalRef.current) {
+      clearInterval(autoHoverIntervalRef.current)
+      autoHoverIntervalRef.current = null
+    }
+
+    if (hoveredUrl || isAutoHoverPaused) {
+      return
+    }
+
+    const hoverableParts = ['khai', 'zer', 'd', 'n']
+    
+    // Set initial hover
+    setHoveredLetter(hoverableParts[autoHoverIndexRef.current])
+    
+    autoHoverIntervalRef.current = setInterval(() => {
+      autoHoverIndexRef.current = (autoHoverIndexRef.current + 1) % hoverableParts.length
+      setHoveredLetter(hoverableParts[autoHoverIndexRef.current])
+    }, 3000) // 3 seconds per item
+
+    return () => {
+      if (autoHoverIntervalRef.current) {
+        clearInterval(autoHoverIntervalRef.current)
+        autoHoverIntervalRef.current = null
+      }
+    }
+  }, [hoveredUrl, isAutoHoverPaused])
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/khaizerdn', label: 'GitHub' },
@@ -148,8 +191,26 @@ export default function Hero() {
                             <span
                               key={index}
                               className="relative inline-flex items-center justify-center"
-                              onMouseEnter={() => isHoverable && setHoveredLetter(part.text)}
-                              onMouseLeave={() => setHoveredLetter(null)}
+                              onMouseEnter={() => {
+                                if (isHoverable) {
+                                  setIsAutoHoverPaused(true)
+                                  setHoveredLetter(part.text)
+                                  // Clear any existing timeout
+                                  if (autoHoverTimeoutRef.current) {
+                                    clearTimeout(autoHoverTimeoutRef.current)
+                                  }
+                                }
+                              }}
+                              onMouseLeave={() => {
+                                // Resume auto-hover after a short delay
+                                if (autoHoverTimeoutRef.current) {
+                                  clearTimeout(autoHoverTimeoutRef.current)
+                                }
+                                autoHoverTimeoutRef.current = setTimeout(() => {
+                                  setIsAutoHoverPaused(false)
+                                  setHoveredLetter(null)
+                                }, 500)
+                              }}
                             >
                               <span className={isHoverable ? `cursor-pointer transition-opacity ${shouldHighlight ? 'opacity-70' : ''}` : ''}>
                                 {part.text}
