@@ -27,8 +27,8 @@ export default function ParagraphAndContainerLayout({
   id = 'section',
 }: ParagraphAndContainerLayoutProps) {
   return (
-    <section id={id} className="py-20 md:py-32 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id={id} className="py-20 md:py-32 bg-white">
+      <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,9 +37,9 @@ export default function ParagraphAndContainerLayout({
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            <span className="text-white">{title}</span>
+            <span className="text-gray-900">{title}</span>
           </h2>
-          <div className="w-16 h-px bg-white/30 mx-auto"></div>
+          <div className="w-16 h-px bg-gray-300 mx-auto"></div>
         </motion.div>
 
         <div className={features && features.length > 0 ? "grid md:grid-cols-2 gap-12 items-start mb-16" : "mb-16"}>
@@ -51,16 +51,16 @@ export default function ParagraphAndContainerLayout({
             className={`flex flex-col h-full ${features && features.length > 0 ? '' : 'max-w-3xl mx-auto text-center'}`}
           >
             {content.title && (
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">{content.title}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 tracking-tight">{content.title}</h3>
             )}
             <div className="flex-grow">
               {content.paragraphs.map((paragraph, index) => (
-                <p key={index} className="text-white mb-5 leading-relaxed text-lg font-light">
+                <p key={index} className="text-gray-700 mb-5 leading-relaxed text-lg font-light">
                   {paragraph}
                 </p>
               ))}
             </div>
-            {features && features.length > 0 && <div className="w-16 h-px bg-white/30 mt-auto"></div>}
+            {features && features.length > 0 && <div className="w-16 h-px bg-gray-300 mt-auto"></div>}
           </motion.div>
 
           {features && features.length > 0 && (
@@ -80,15 +80,15 @@ export default function ParagraphAndContainerLayout({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, delay: 0.2 + index * 0.05 }}
-                    className="group p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300"
+                    className="group p-8 rounded-2xl bg-gray-50 backdrop-blur-sm border border-gray-200 hover:border-gray-300 hover:bg-gray-100 transition-all duration-300"
                   >
                     <div className="flex items-start gap-5">
-                      <div className="p-3 rounded-xl bg-white text-black shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="p-3 rounded-xl bg-gray-900 text-white shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <Icon size={22} />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold mb-2 text-white tracking-tight">{feature.title}</h4>
-                        <p className="text-white font-light leading-relaxed">{feature.description}</p>
+                        <h4 className="text-xl font-bold mb-2 text-gray-900 tracking-tight">{feature.title}</h4>
+                        <p className="text-gray-700 font-light leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                   </motion.div>

@@ -99,8 +99,8 @@ export default function SimpleCardWithIconLayout({
 
   return (
     <>
-      <section id={id} className="py-20 md:py-32 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id={id} className="py-20 md:py-32 bg-white">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,13 +109,13 @@ export default function SimpleCardWithIconLayout({
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              <span className="text-white">{title}</span>
+              <span className="text-gray-900">{title}</span>
             </h2>
-            <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
-            <p className="text-white max-w-2xl mx-auto text-lg font-light">{description}</p>
+            <div className="w-16 h-px bg-gray-300 mx-auto mb-6"></div>
+            <p className="text-gray-700 max-w-2xl mx-auto text-lg font-light">{description}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {visibleItems.map((item, index) => (
               <CardItem
                 key={item.title}
@@ -137,7 +137,7 @@ export default function SimpleCardWithIconLayout({
               <button
                 type="button"
                 onClick={onShowMore}
-                className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
+                className="text-sm font-light text-gray-700 border border-gray-300 rounded-full px-4 py-2 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 ease-out"
               >
                 Show More
               </button>
@@ -261,14 +261,14 @@ const CardItem = memo(function CardItem({
       }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: 0.15 + index * 0.05 }}
-      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden"
+      className="group bg-gray-50 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-gray-300 hover:bg-gray-100 transition-all duration-300 overflow-hidden"
     >
       {hasImages ? (
         <div 
-          className="relative h-56 bg-white/5 overflow-hidden cursor-pointer"
+          className="relative h-56 bg-gray-100 overflow-hidden cursor-pointer"
           onClick={() => onCardClick(item, currentImageIndex)}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-transparent group-hover:from-gray-300/50 transition-all duration-300" />
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentImageSrc}
@@ -314,8 +314,8 @@ const CardItem = memo(function CardItem({
           )}
         </div>
       ) : (
-        <div className="relative h-56 bg-white/5 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+        <div className="relative h-56 bg-gray-100 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-transparent"></div>
           {item.logo && (
             <div className="absolute inset-0 flex items-center justify-center p-8">
               <Image src={item.logo} alt={item.title} width={120} height={120} className="object-contain opacity-50" />
@@ -326,7 +326,7 @@ const CardItem = memo(function CardItem({
       <div className="p-8">
         <div className="flex items-center gap-3 mb-4">
           {item.logo && (
-            <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-white/10">
+            <div className="w-12 h-12 flex-shrink-0 rounded-2xl bg-white flex items-center justify-center overflow-hidden border border-gray-200">
               <Image
                 src={item.logo}
                 alt={item.issuer || item.title}
@@ -338,9 +338,9 @@ const CardItem = memo(function CardItem({
           )}
           {item.issuer && (
             <div className="flex-1 min-w-0">
-              <p className="text-white/70 text-sm font-light">
+              <p className="text-gray-600 text-sm font-light">
                 {item.issuerUrl ? (
-                  <a href={item.issuerUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  <a href={item.issuerUrl} target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
                     {item.issuer}
                   </a>
                 ) : (
@@ -348,14 +348,14 @@ const CardItem = memo(function CardItem({
                 )}
               </p>
               {item.year && (
-                <p className="text-white/60 text-xs font-light mt-0.5">{item.year}</p>
+                <p className="text-gray-500 text-xs font-light mt-0.5">{item.year}</p>
               )}
             </div>
           )}
         </div>
-        <h3 className="text-xl font-bold text-white tracking-tight mb-4">{item.title}</h3>
+        <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-4">{item.title}</h3>
         {item.description && (
-          <p className="text-white/80 text-sm leading-relaxed font-light">{item.description}</p>
+          <p className="text-gray-700 text-sm leading-relaxed font-light">{item.description}</p>
         )}
       </div>
     </motion.div>

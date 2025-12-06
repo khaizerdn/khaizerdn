@@ -108,8 +108,8 @@ export default function SimpleCardLayout({
 
   return (
     <>
-      <section id={id} className="py-20 md:py-32 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id={id} className="py-20 md:py-32 bg-white">
+        <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,13 +118,13 @@ export default function SimpleCardLayout({
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              <span className="text-white">{title}</span>
+              <span className="text-gray-900">{title}</span>
             </h2>
-            <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
-            <p className="text-white max-w-2xl mx-auto text-lg font-light">{description}</p>
+            <div className="w-16 h-px bg-gray-300 mx-auto mb-6"></div>
+            <p className="text-gray-700 max-w-2xl mx-auto text-lg font-light">{description}</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {visibleItems.map((item, index) => (
               <CardItem
                 key={item.title}
@@ -146,7 +146,7 @@ export default function SimpleCardLayout({
               <button
                 type="button"
                 onClick={onShowMore}
-                className="text-sm font-light text-white border border-white/20 rounded-full px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 ease-out"
+                className="text-sm font-light text-gray-700 border border-gray-300 rounded-full px-4 py-2 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 ease-out"
               >
                 Show More
               </button>
@@ -273,14 +273,14 @@ const CardItem = memo(function CardItem({
       }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: 0.15 + index * 0.05 }}
-      className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10 transition-all duration-300 overflow-hidden flex flex-col"
+      className="group bg-gray-50 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-gray-300 hover:bg-gray-100 transition-all duration-300 overflow-hidden flex flex-col"
     >
       {hasImages ? (
         <div 
-          className="relative h-56 bg-white/5 overflow-hidden cursor-pointer flex-shrink-0"
+          className="relative h-56 bg-gray-100 overflow-hidden cursor-pointer flex-shrink-0"
           onClick={() => onCardClick(item, currentImageIndex)}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-transparent group-hover:from-gray-300/50 transition-all duration-300" />
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentImageSrc}
@@ -326,10 +326,10 @@ const CardItem = memo(function CardItem({
           )}
         </div>
       ) : (
-        <div className="relative h-56 bg-white/5 overflow-hidden flex-shrink-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent group-hover:from-white/20 transition-all duration-300"></div>
+        <div className="relative h-56 bg-gray-100 overflow-hidden flex-shrink-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-200/50 to-transparent group-hover:from-gray-300/50 transition-all duration-300"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white/30 text-xs font-light tracking-wider uppercase">
+            <span className="text-gray-400 text-xs font-light tracking-wider uppercase">
               NO IMAGE PROVIDED
             </span>
           </div>
@@ -337,14 +337,14 @@ const CardItem = memo(function CardItem({
       )}
       <div className="p-8 flex flex-col flex-grow min-h-0">
         <div className="flex-grow">
-          <h3 className="text-xl font-bold mb-3 text-white tracking-tight">{item.title}</h3>
-          <p className="text-white mb-5 text-sm leading-relaxed font-light">{item.description}</p>
+          <h3 className="text-xl font-bold mb-3 text-gray-900 tracking-tight">{item.title}</h3>
+          <p className="text-gray-700 mb-5 text-sm leading-relaxed font-light">{item.description}</p>
           {item.technologies && item.technologies.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
               {item.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 text-xs font-medium bg-white text-black rounded-full tracking-wide"
+                  className="px-3 py-1.5 text-xs font-medium bg-gray-900 text-white rounded-full tracking-wide"
                 >
                   {tech}
                 </span>
@@ -359,7 +359,7 @@ const CardItem = memo(function CardItem({
                 href={item.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-white transition-colors duration-200 font-light group/link"
+                className="flex items-center gap-2 text-sm text-gray-700 transition-colors duration-200 font-light group/link hover:text-gray-900"
               >
                 <Github size={16} className="group-hover/link:scale-110 transition-transform" />
                 <span>Code</span>
@@ -370,7 +370,7 @@ const CardItem = memo(function CardItem({
                 href={item.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-white transition-colors duration-200 font-light group/link"
+                className="flex items-center gap-2 text-sm text-gray-700 transition-colors duration-200 font-light group/link hover:text-gray-900"
               >
                 <ExternalLink size={16} className="group-hover/link:scale-110 transition-transform" />
                 <span>Live Demo</span>
