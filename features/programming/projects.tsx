@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import SimpleCardLayout from '@/layouts/SimpleCardLayout'
-import type { SimpleCardItem } from '@/layouts/SimpleCardLayout'
+import AppleMinimalLayout from '@/layouts/AppleMinimalLayout'
+import type { AppleMinimalItem } from '@/layouts/AppleMinimalLayout'
 import doxionImage from './assets/Doxion.png'
 import doxionImage1 from './assets/Doxion1.png'
 import doxionImage3 from './assets/Doxion3.jpg'
@@ -15,7 +15,7 @@ import tweetheartImage4 from './assets/Tweetheart4.png'
 import shieldImage from './assets/SHIELD.png'
 
 // Data is inside this component
-const projectsData: SimpleCardItem[] = [
+const projectsData: AppleMinimalItem[] = [
   {
     title: 'Doxion',
     description:
@@ -103,7 +103,7 @@ export default function ProgrammingProjects() {
   }
 
   return (
-    <SimpleCardLayout
+    <AppleMinimalLayout
       title="Projects"
       description="Collection of projects showcasing my programming expertise"
       items={visibleProjects}

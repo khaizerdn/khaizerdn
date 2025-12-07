@@ -24,7 +24,7 @@ export default function RoadMapLayout({
 }: RoadMapLayoutProps) {
   return (
     <section id={id} className="py-20 md:py-32 bg-white">
-      <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[700px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
