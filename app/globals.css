@@ -59,12 +59,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* Smooth scrollbar content optimization */
-.scrollbar-content {
-  will-change: transform;
-  transform: translateZ(0);
-}
-
 /* Modal open state */
 .modal-open body {
   overflow: hidden !important;
@@ -79,22 +73,6 @@ h1, h2, h3, h4, h5, h6 {
 .modal-open .scrollbar-thumb-y {
   opacity: 0 !important;
   pointer-events: none !important;
-}
-
-/* Text balance utility */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Glass effect utility */
-.glass-effect {
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.02);
-}
-
-/* Modern border utility */
-.modern-border {
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Smooth Scrollbar Styles */
@@ -129,5 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Layout styles */
 .main-layout {
   min-height: 100vh;
-  width: 700px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }

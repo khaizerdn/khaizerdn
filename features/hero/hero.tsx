@@ -51,13 +51,13 @@ export default function Hero() {
   }
 
   const quotes = [
-    "Always imagine ~",
-    "They shouldn't be teaching you what to think but how to think.",
+    // "Always imagine ~",
+    // "They shouldn't be teaching you what to think but how to think.",
     "Talent is a pursued interest. In other words, anything that you're willing to practice, you can do. ~ Bob Ross",
-    "Find what you love, what you’re good at, what the world needs, and what you can be paid for. ~ Ikigai",
-    "Continuous improvement turns progress into greatness. ~ Kaizen",
-    "We encounter problems not by accident, but because we are searching for something better.",
-    "Life is art and creativity makes it interesting.",
+    // "Find what you love, what you’re good at, what the world needs, and what you can be paid for. ~ Ikigai",
+    // "Continuous improvement turns progress into greatness. ~ Kaizen",
+    // "We encounter problems not by accident, but because we are searching for something better.",
+    // "Life is art and creativity makes it interesting.",
   ]
 
   useEffect(() => {

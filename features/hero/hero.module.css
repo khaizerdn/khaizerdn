@@ -14,7 +14,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .titleWrapper {
@@ -60,7 +61,11 @@
 }
 
 .quoteWrapper {
-  width: 100%;
+  max-width: 700px;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .quoteContainer {
@@ -235,3 +240,59 @@
   border-width: 0;
 }
 
+@media (max-width: 1440px) {
+  .title {
+    font-size: 5rem;
+  }
+  .quoteWrapper {
+    width: 600px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .title {
+    font-size: 4rem;
+  }
+  .quoteWrapper {
+    width: 500px;
+  }
+}
+
+@media (max-width: 970px) {
+  .title {
+    font-size: 3rem;
+  }
+  .quoteWrapper {
+    width: 450px;
+  }
+}
+
+@media (max-width: 770px) {
+  .title {
+    font-size: 2rem;
+  }
+  .quoteWrapper {
+    width: 400px;
+  }
+  .quote {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .quoteWrapper {
+    width: 300px;
+  }
+  .quote {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.25rem;
+  }
+}

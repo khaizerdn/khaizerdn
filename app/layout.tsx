@@ -53,7 +53,9 @@ export default function RootLayout({
         <ThemeProvider>
         <SmoothScroll />
         <main className="main-layout">
-          {children}
+          <div className="main-content">
+            {children}
+          </div>
         </main>
         </ThemeProvider>
       </body>
