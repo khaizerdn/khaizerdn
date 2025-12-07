@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Hero from '@/features/hero/hero'
 import Projects from '@/features/projects/projects'
+import Certificates from '@/features/certificates/Certificates'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     >
       <Hero />
       <Projects />
+      <Certificates />
     </motion.div>
   )
 }
