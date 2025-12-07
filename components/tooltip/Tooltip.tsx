@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import styles from './Tooltip.module.css'
+import styles from './tooltip.module.css'
 
 interface TooltipProps {
   children: React.ReactNode
