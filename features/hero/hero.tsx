@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram } from 'lucide-react'
 import { useTheme, type Theme } from '@/lib/theme-context'
+import Tooltip from '@/components/tooltip/Tooltip'
+import styles from './hero.module.css'
 
 // Auto-hover configuration for header
 const AUTO_HOVER_CONFIG = {
@@ -163,23 +165,23 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-white overflow-hidden">
-      <div className="max-w-[700px] mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
-        <div className="text-center flex flex-col items-center">
+    <section id="home" className={styles.section}>
+      <div className={styles.container}>
+        <div className={styles.content}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full px-4 mb-2 sm:mb-3 md:mb-4 lg:mb-4"
+            className={styles.titleWrapper}
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-7xl xl:text-8xl font-bold break-words text-center flex justify-center items-center" style={{ lineHeight: '0.9', minHeight: 'unset' }}>
+            <h1 className={styles.title} style={{ lineHeight: '0.9', minHeight: 'unset' }}>
               <motion.span
                 key={hoveredUrl || 'default'}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="text-gray-900 font-extrabold break-words"
+                className={styles.titleText}
               >
                 {(() => {
                   if (!hoveredUrl) {
@@ -197,13 +199,13 @@ export default function Hero() {
                           const isZer = part.text === 'zer'
                           const isZerHovered = hoveredLetter === 'zer'
                           const shouldHighlight = (isKhai && isZerHovered) || (hoveredLetter === part.text)
-                          const shouldShowTooltip = part.tooltip && hoveredLetter === part.text
+                          const shouldShowTooltip = Boolean(part.tooltip && hoveredLetter === part.text)
                           const isHoverable = part.tooltip || isZer
                           
                           return (
                             <span
                               key={index}
-                              className="relative inline-block"
+                              className={styles.namePart}
                               onMouseEnter={() => {
                                 if (isHoverable) {
                                   setIsAutoHoverPaused(true)
@@ -225,29 +227,12 @@ export default function Hero() {
                                 }, AUTO_HOVER_CONFIG.resumeDelay)
                               }}
                             >
-                              <span className={isHoverable ? `cursor-pointer transition-opacity ${shouldHighlight ? 'opacity-70' : ''}` : ''}>
+                              <span className={isHoverable ? `${styles.namePartHoverable} ${shouldHighlight ? styles.namePartHighlighted : ''}` : ''}>
                                 {part.text}
                               </span>
-                              {shouldShowTooltip && (
-                                <div className="absolute bottom-full left-0 right-0 mb-4 flex justify-center z-50 pointer-events-none">
-                                  <motion.div
-                                    initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                    exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                                    className="px-3 py-1.5 bg-gray-50 backdrop-blur-sm border border-gray-200 text-gray-700 text-xs font-light rounded-lg whitespace-nowrap tracking-normal relative"
-                                  >
-                                    {part.tooltip}
-                                    <div 
-                                      className="absolute top-full left-1/2 -translate-x-1/2 -mt-0.3"
-                                    >
-                                      <div className="relative">
-                                        <div className="w-0 h-0 border-l-[7px] border-r-[7px] border-t-[7px] border-l-transparent border-r-transparent border-t-gray-200 absolute left-1/2 -translate-x-1/2"></div>
-                                        <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-50 relative"></div>
-                                      </div>
-                                    </div>
-                                  </motion.div>
-                                </div>
-                              )}
+                              <Tooltip show={shouldShowTooltip}>
+                                {part.tooltip}
+                              </Tooltip>
                             </span>
                           )
                         })}
@@ -258,13 +243,13 @@ export default function Hero() {
                   return (
                     <>
                       {parts.prefix && (
-                        <span className="text-gray-900 opacity-30">{parts.prefix}</span>
+                        <span className={styles.urlPrefix}>{parts.prefix}</span>
                       )}
                       {parts.name && (
                         <span>{parts.name}</span>
                       )}
                       {parts.suffix && (
-                        <span className="text-gray-900 opacity-30">{parts.suffix}</span>
+                        <span className={styles.urlSuffix}>{parts.suffix}</span>
                       )}
                     </>
                   )
@@ -277,9 +262,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full px-4 mb-2 sm:mb-3 md:mb-4 lg:mb-4"
+            className={styles.quoteWrapper}
           >
-            <div className="max-w-3xl mx-auto h-[10rem] sm:h-[5rem] flex items-center justify-center">
+            <div className={styles.quoteContainer}>
               <AnimatePresence mode="wait">
                 <motion.p
                   key={currentQuoteIndex}
@@ -287,7 +272,7 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-xl text-gray-700 font-light italic text-center px-2 sm:px-4 leading-tight break-words"
+                  className={styles.quote}
                   style={{ lineHeight: '1.5' }}
                 >
                   {(() => {
@@ -313,24 +298,23 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full px-4 mb-3 sm:mb-4 md:mb-5"
+            className={styles.themesWrapper}
           >
-            <div className="flex flex-wrap justify-center">
+            <div className={styles.themesContainer}>
               {themes.map((themeOption) => (
                 <button
                   key={themeOption}
                   onClick={() => setTheme(themeOption)}
-                  className={`p-2 transition-all duration-300 ${
+                  className={`${styles.themeButton} ${
                     theme === themeOption
-                      ? 'text-gray-900 opacity-100'
-                      : 'text-gray-400 opacity-60 hover:opacity-100 hover:text-gray-700'
+                      ? styles.themeButtonActive
+                      : styles.themeButtonInactive
                   }`}
                   aria-label={themeOption}
                 >
                   <motion.div
-                    className="w-6 h-6 sm:w-7 sm:h-7"
+                    className={styles.themeIcon}
                     whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   >
                     {themeIcons[themeOption]}
@@ -340,15 +324,15 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <div className="flex flex-col items-center mb-2 sm:mb-3 md:mb-4 lg:mb-4">
+          <div className={styles.socialWrapper}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="flex justify-center mb-4"
+              className={styles.socialContainer}
             >
-              <div className="stable-container">
-                <div className="inline-flex items-stretch gap-0 bg-gray-50 backdrop-blur-sm border border-gray-200 rounded-lg overflow-hidden isolate">
+              <div className={styles.stableContainer}>
+                <div className={styles.socialLinks}>
                   {socialLinks.map((social, index) => {
                     const Icon = social.icon
                     return (
@@ -357,16 +341,16 @@ export default function Hero() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative p-4 text-gray-700 border-r border-gray-200 last:border-r-0 flex items-center justify-center w-[3rem] h-[3rem] box-border"
+                        className={styles.socialLink}
                         style={{ flexShrink: 0 }}
                         onMouseEnter={() => setHoveredUrl(social.href)}
                         onMouseLeave={() => setHoveredUrl(null)}
                         onMouseDown={() => setHoveredUrl(social.href)}
                         onTouchStart={() => setHoveredUrl(social.href)}
                       >
-                        <div className="absolute inset-0 bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                        <Icon size={20} className="relative z-10 group-hover:text-gray-900 transition-colors duration-300" />
-                        <span className="sr-only">{social.label}</span>
+                        <div className={styles.socialLinkHover}></div>
+                        <Icon size={20} className={styles.socialIcon} />
+                        <span className={styles.srOnly}>{social.label}</span>
                       </a>
                     )
                   })}
@@ -378,11 +362,11 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center"
+              className={styles.scrollLinkWrapper}
             >
               <motion.a
                 href="#projects"
-                className="inline-flex items-center gap-1 text-sm text-gray-600 transition-colors duration-300 font-light tracking-wide"
+                className={styles.scrollLink}
                 animate={{ y: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
               >
@@ -396,4 +380,5 @@ export default function Hero() {
     </section>
   )
 }
+
 

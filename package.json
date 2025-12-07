@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "copy-problematic-image": "node scripts/copy-problematic-image.js",
-    "dev": "npm run copy-problematic-image && next dev",
-    "build": "npm run copy-problematic-image && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "deploy": "npm run build && touch out/.nojekyll && git add out/ && git commit -m 'Deploy to GitHub Pages' && git subtree push --prefix out origin gh-pages"
   },

@@ -48,11 +48,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={inter.className}>
+    <html lang="en" className={inter.variable} style={{ fontFamily: inter.style.fontFamily }}>
+      <body style={{ fontFamily: inter.style.fontFamily }}>
         <ThemeProvider>
         <SmoothScroll />
-        <main className="min-h-screen">
+        <main className="main-layout">
           {children}
         </main>
         </ThemeProvider>
