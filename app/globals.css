@@ -8,11 +8,13 @@
 html {
   overflow: hidden;
   font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  /* Smooth page load animation */
+  animation: fadeIn 0.6s ease-out;
 }
 
 body {
   background-color: white;
-  color: #111827;
+  color: #1d1d1f;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -21,6 +23,17 @@ body {
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+  /* Smooth page load animation */
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Enable native smooth scrolling on mobile */
@@ -54,9 +67,12 @@ body > * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: -0.011em;
+  line-height: 1.47059;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Modal open state */
@@ -110,4 +126,17 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   display: flex;
   justify-content: center;
+  /* Smooth page load animation */
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

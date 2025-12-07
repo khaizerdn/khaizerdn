@@ -32,12 +32,17 @@
   align-items: center;
   line-height: 0.9;
   min-height: unset;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .titleText {
-  color: #111827;
-  font-weight: 800;
+  color: #1d1d1f;
+  font-weight: 700;
   word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .namePart {
@@ -47,7 +52,7 @@
 
 .namePartHoverable {
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .namePartHighlighted {
@@ -56,8 +61,10 @@
 
 .urlPrefix,
 .urlSuffix {
-  color: #111827;
+  color: #1d1d1f;
   opacity: 0.3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .quoteWrapper {
@@ -78,12 +85,14 @@
 
 .quote {
   font-size: 1.25rem;
-  color: #374151;
+  color: #86868b;
   font-weight: 300;
   font-style: italic;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.47059;
   word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .themesWrapper {
@@ -112,12 +121,12 @@
 }
 
 .themeButtonActive {
-  color: #111827;
+  color: #1d1d1f;
   opacity: 1;
 }
 
 .themeButtonInactive {
-  color: #9ca3af;
+  color: #86868b;
   opacity: 0.6;
 }
 
@@ -157,9 +166,9 @@
   display: inline-flex;
   align-items: stretch;
   gap: 0;
-  background-color: #f9fafb;
+  background-color: rgba(0, 0, 0, 0.02);
   backdrop-filter: blur(4px);
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
   overflow: hidden;
   isolation: isolate;
@@ -168,8 +177,8 @@
 .socialLink {
   position: relative;
   padding: 1rem;
-  color: #374151;
-  border-right: 1px solid #e5e7eb;
+  color: #1d1d1f;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,6 +186,8 @@
   height: 3rem;
   box-sizing: border-box;
   flex-shrink: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .socialLink:last-child {
@@ -186,9 +197,9 @@
 .socialLinkHover {
   position: absolute;
   inset: 0;
-  background-color: #f3f4f6;
+  background-color: rgba(0, 0, 0, 0.03);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
@@ -197,7 +208,8 @@
 }
 
 .socialLink:hover .socialIcon {
-  color: #111827;
+  color: #1d1d1f;
+  opacity: 0.8;
 }
 
 .socialIcon {
@@ -216,11 +228,17 @@
   align-items: center;
   gap: 0.25rem;
   font-size: 0.875rem;
-  color: #4b5563;
-  transition: color 0.3s;
+  color: #86868b;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 300;
   letter-spacing: 0.05em;
   text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scrollLink:hover {
+  opacity: 0.6;
 }
 
 .srOnly {
