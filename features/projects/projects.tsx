@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
 import styles from './projects.module.css'
 
 type ContentItem = 
@@ -121,8 +122,71 @@ const projects: Project[] = [
   { name: 'Tempo', year: '2019', content: 'A music tempo detection and BPM analyzer.' },
 ]
 
+// Helper to get images from project content
+const getProjectImages = (project: Project): string[] => {
+  if (typeof project.content === 'string') return []
+  return project.content
+    .filter((item): item is { type: 'image'; src: string; alt: string } => item.type === 'image')
+    .map(item => item.src)
+}
+
+function ProjectPreview({ images, initialX, initialY, projectName }: { images: string[], initialX: number, initialY: number, projectName: string }) {
+  const x = useMotionValue(initialX)
+  const y = useMotionValue(initialY)
+  
+  // Smooth spring animation for cursor following
+  // stiffness 150, damping 15 gives a nice smooth "delay" feel
+  // lower stiffness = more "lag/floaty", higher damping = less bounce
+  const springConfig = { damping: 20, stiffness: 100, mass: 0.8 }
+  const springX = useSpring(x, springConfig)
+  const springY = useSpring(y, springConfig)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      x.set(e.clientX)
+      y.set(e.clientY)
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [x, y])
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9, x: 80, y: -300 }}
+      animate={{ opacity: 1, scale: 1, x: 80, y: -300 }}
+      exit={{ opacity: 0, scale: 0.9, x: 80, y: -300 }}
+      transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+      className={styles.hoverPreview}
+      style={{
+        left: springX,
+        top: springY,
+      }}
+    >
+      <div className={styles.previewFrame}>
+        {images.slice(0, 1).map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            alt={`${projectName} preview`}
+            className={styles.previewImage}
+          />
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Projects() {
   const [openProjects, setOpenProjects] = useState<Set<string>>(new Set())
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 })
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
 
   const handleProjectClick = (projectName: string) => {
     setOpenProjects(prev => {
@@ -172,6 +236,14 @@ export default function Projects() {
               <div
                 className={styles.projectItem}
                 onClick={() => handleProjectClick(project.name)}
+                onMouseEnter={(e) => {
+                  const images = getProjectImages(project)
+                  if (images.length > 0) {
+                    setHoveredProject(project.name)
+                    setInitialMousePosition({ x: e.clientX, y: e.clientY })
+                  }
+                }}
+                onMouseLeave={() => setHoveredProject(null)}
               >
                 <span className={styles.projectName}>{project.name}</span>
                 <span className={styles.projectYear}>{project.year}</span>
@@ -226,6 +298,28 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
+      
+      {mounted && createPortal(
+        <AnimatePresence>
+          {hoveredProject && !openProjects.has(hoveredProject) && (() => {
+            const project = projects.find(p => p.name === hoveredProject)
+            if (!project) return null
+            const images = getProjectImages(project)
+            if (images.length === 0) return null
+            
+            return (
+              <ProjectPreview
+                key="preview"
+                images={images}
+                initialX={initialMousePosition.x}
+                initialY={initialMousePosition.y}
+                projectName={project.name}
+              />
+            )
+          })()}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   )
 }
