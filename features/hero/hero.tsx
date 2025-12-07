@@ -166,7 +166,6 @@ export default function Hero() {
 
   return (
     <section id="home" className={styles.section}>
-      <div className={styles.container}>
         <div className={styles.content}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -324,7 +323,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <div className={styles.socialWrapper}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -374,8 +372,6 @@ export default function Hero() {
                 <ChevronDown size={16} />
               </motion.a>
             </motion.div>
-          </div>
-        </div>
       </div>
     </section>
   )
