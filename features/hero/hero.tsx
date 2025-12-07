@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram } from 'lucide-react'
 import { useTheme, type Theme } from '@/lib/theme-context'
-import Tooltip from '@/components/tooltip/Tooltip'
+import Tooltip from '@/components/tooltip/tooltip'
 import styles from './hero.module.css'
 
 // Auto-hover configuration for header
