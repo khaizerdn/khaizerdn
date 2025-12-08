@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/lib/smooth-scroll'
 import { ThemeProvider } from '@/lib/theme-context'
+import { ProjectsProvider } from '@/lib/projects-context'
+import { CertificatesProvider } from '@/lib/certificates-context'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -51,12 +53,16 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} style={{ fontFamily: inter.style.fontFamily }}>
       <body style={{ fontFamily: inter.style.fontFamily }}>
         <ThemeProvider>
+        <ProjectsProvider>
+        <CertificatesProvider>
         <SmoothScroll />
         <main className="main-layout">
           <div className="main-content">
             {children}
           </div>
         </main>
+        </CertificatesProvider>
+        </ProjectsProvider>
         </ThemeProvider>
       </body>
     </html>

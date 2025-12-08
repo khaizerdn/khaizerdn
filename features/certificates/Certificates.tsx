@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { useCertificates } from '@/lib/certificates-context'
 import styles from './Certificates.module.css'
 
 interface Certificate {
@@ -90,7 +91,7 @@ function CertificatePreview({ images, initialX, initialY, certificateName }: { i
 }
 
 export default function Certificates() {
-  const [openCertificates, setOpenCertificates] = useState<Set<string>>(new Set())
+  const { openCertificates, setOpenCertificates } = useCertificates()
   const [hoveredCertificate, setHoveredCertificate] = useState<string | null>(null)
   const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 })
   const [mounted, setMounted] = useState(false)
@@ -137,6 +138,7 @@ export default function Certificates() {
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.name}
+              id={`certificate-${cert.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '200px 0px' }}

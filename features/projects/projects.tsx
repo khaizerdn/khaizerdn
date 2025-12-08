@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { useProjects } from '@/lib/projects-context'
 import styles from './projects.module.css'
 
 type ContentItem = 
@@ -98,7 +99,7 @@ function ProjectPreview({ images, initialX, initialY, projectName }: { images: s
 }
 
 export default function Projects() {
-  const [openProjects, setOpenProjects] = useState<Set<string>>(new Set())
+  const { openProjects, setOpenProjects } = useProjects()
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 })
   const [mounted, setMounted] = useState(false)
@@ -146,6 +147,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.name}
+              id={`project-${project.name.toLowerCase()}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '200px 0px' }}

@@ -40,6 +40,57 @@
   transform: scale(1.05);
 }
 
+.tocSubList {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+}
+
+.tocSubItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tocSubLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tocSubLink:hover {
+  color: var(--foreground);
+}
+
+.tocSubLink.activeSub {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.tocTree {
+  font-family: monospace;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tocSubLink:hover .tocTree,
+.tocSubLink.activeSub .tocTree {
+  opacity: 1;
+}
+
 @media (max-width: 1200px) {
   .tocContainer {
     display: none;
