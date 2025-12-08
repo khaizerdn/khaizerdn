@@ -282,12 +282,13 @@ export default function Hero() {
           <div className={styles.themesContainer}>
             {socialLinks.map((social) => {
               const Icon = social.icon
+              const isMailto = social.href.startsWith('mailto:')
               return (
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isMailto ? undefined : "_blank"}
+                  rel={isMailto ? undefined : "noopener noreferrer"}
                   className={styles.themeButton}
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
