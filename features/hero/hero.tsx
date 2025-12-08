@@ -287,7 +287,7 @@ export default function Hero() {
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target={isMailto ? undefined : "_blank"}
+                  target={isMailto ? "_self" : "_blank"}
                   rel={isMailto ? undefined : "noopener noreferrer"}
                   className={styles.themeButton}
                   whileHover={{ scale: 1.2 }}
@@ -296,6 +296,12 @@ export default function Hero() {
                   onMouseLeave={() => setHoveredUrl(null)}
                   onMouseDown={() => setHoveredUrl(social.href)}
                   onTouchStart={() => setHoveredUrl(social.href)}
+                  onClick={(e) => {
+                    if (isMailto) {
+                      e.preventDefault()
+                      window.location.href = social.href
+                    }
+                  }}
                 >
                   <Icon size={24} className={styles.socialIcon} />
                   <span className={styles.srOnly}>{social.label}</span>
