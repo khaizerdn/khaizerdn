@@ -103,7 +103,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0;
 }
 
 .themeButton {
@@ -115,19 +115,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.themeButtonActive {
-  color: #1d1d1f;
-  opacity: 1;
-}
-
-.themeButtonInactive {
+  transition: color 0.15s ease-out, opacity 0.15s ease-out;
+  width: 3rem;
+  height: 3rem;
   color: #86868b;
   opacity: 0.6;
+  border-radius: 0.5rem;
+}
+
+.themeButton:hover {
+  color: #1d1d1f;
+  opacity: 1;
 }
 
 .themeIcon {
@@ -141,75 +139,6 @@
 .themeIcon svg {
   width: 100%;
   height: 100%;
-}
-
-.socialWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.socialContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.stableContainer {
-  contain: layout style paint;
-  transform: translateZ(0);
-  will-change: auto;
-  display: inline-block;
-  position: relative;
-}
-
-.socialLinks {
-  display: inline-flex;
-  align-items: stretch;
-  gap: 0;
-  background-color: rgba(0, 0, 0, 0.02);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.socialLink {
-  position: relative;
-  padding: 1rem;
-  color: #1d1d1f;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.socialLink:last-child {
-  border-right: none;
-}
-
-.socialLinkHover {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  opacity: 0;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
-.socialLink:hover .socialLinkHover {
-  opacity: 1;
-}
-
-.socialLink:hover .socialIcon {
-  color: #1d1d1f;
-  opacity: 0.8;
 }
 
 .socialIcon {
