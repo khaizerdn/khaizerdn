@@ -213,6 +213,11 @@ export default function Hero() {
                     </>
                   )
                 }
+                
+                if (hoveredUrl === 'THEME_TOGGLE') {
+                  return <span>{theme === 'light' ? 'Dark Mode?' : 'Light Mode?'}</span>
+                }
+
                 const parts = splitUrl(hoveredUrl)
                 return (
                   <>
@@ -302,13 +307,13 @@ export default function Hero() {
               aria-label="Toggle theme"
               whileHover={{ scale: 1.2 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              onMouseEnter={() => setHoveredUrl('Theme Toggle')}
+              onMouseEnter={() => setHoveredUrl('THEME_TOGGLE')}
               onMouseLeave={() => setHoveredUrl(null)}
             >
               {theme === 'light' ? (
-                <Sun size={20} className={styles.themeToggleIcon} />
+                <Sun size={24} className={styles.themeToggleIcon} />
               ) : (
-                <Moon size={20} className={styles.themeToggleIcon} />
+                <Moon size={24} className={styles.themeToggleIcon} />
               )}
             </motion.button>
           </div>
