@@ -311,9 +311,9 @@ export default function Hero() {
               onMouseLeave={() => setHoveredUrl(null)}
             >
               {theme === 'light' ? (
-                <Sun size={24} className={styles.themeToggleIcon} />
-              ) : (
                 <Moon size={24} className={styles.themeToggleIcon} />
+              ) : (
+                <Sun size={24} className={styles.themeToggleIcon} />
               )}
             </motion.button>
           </div>
