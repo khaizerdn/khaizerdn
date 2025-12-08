@@ -301,7 +301,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon size={24} className={styles.socialIcon} />
+                  <Icon size={20} className={styles.socialIcon} />
                   <span className={styles.srOnly}>{social.label}</span>
                 </motion.a>
               )
@@ -316,9 +316,9 @@ export default function Hero() {
               onMouseLeave={() => setHoveredUrl(null)}
             >
               {theme === 'light' ? (
-                <Moon size={24} className={styles.themeToggleIcon} />
+                <Moon size={20} className={styles.themeToggleIcon} />
               ) : (
-                <Sun size={24} className={styles.themeToggleIcon} />
+                <Sun size={20} className={styles.themeToggleIcon} />
               )}
             </motion.button>
           </div>
