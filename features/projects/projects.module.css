@@ -1,6 +1,6 @@
 /* Projects Section Styles - Apple-inspired Minimal Design */
 .section {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
