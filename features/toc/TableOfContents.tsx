@@ -39,6 +39,8 @@ export default function TableOfContents() {
     return () => observer.disconnect()
   }, [])
 
+  if (!mounted) return null
+
   return createPortal(
     <AnimatePresence>
       {mounted && activeSection !== 'home' && (
