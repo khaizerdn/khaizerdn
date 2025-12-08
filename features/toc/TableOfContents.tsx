@@ -48,30 +48,31 @@ export default function TableOfContents() {
 
     const projectObserver = new IntersectionObserver(
       (entries) => {
-        // Find the most visible project that is open
-        let mostVisible: { element: Element; ratio: number } | null = null
+        // Find the most visible project (regardless of whether it's open)
+        type MostVisible = { element: HTMLElement; ratio: number }
+        let mostVisible: MostVisible | null = null
         
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry.isIntersecting && entry.intersectionRatio > 0) {
             const projectId = (entry.target as HTMLElement).id.replace('project-', '')
             const projectName = projectNames.find(name => name.toLowerCase() === projectId)
-            // Only consider projects that are open
-            if (projectName && openProjects.has(projectName)) {
+            // Track all projects, not just open ones
+            if (projectName) {
               if (!mostVisible || entry.intersectionRatio > mostVisible.ratio) {
                 mostVisible = {
-                  element: entry.target,
+                  element: entry.target as HTMLElement,
                   ratio: entry.intersectionRatio
                 }
               }
             }
           }
-        })
+        }
 
         if (mostVisible) {
-          const projectId = (mostVisible.element as HTMLElement).id.replace('project-', '')
+          const projectId = mostVisible.element.id.replace('project-', '')
           setActiveProject(projectId)
         } else {
-          // Clear active project if no open project is visible
+          // Clear active project if no project is visible
           setActiveProject(null)
         }
       },
@@ -83,32 +84,33 @@ export default function TableOfContents() {
 
     const certificateObserver = new IntersectionObserver(
       (entries) => {
-        // Find the most visible certificate that is open
-        let mostVisible: { element: Element; ratio: number } | null = null
+        // Find the most visible certificate (regardless of whether it's open)
+        type MostVisible = { element: HTMLElement; ratio: number }
+        let mostVisible: MostVisible | null = null
         
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry.isIntersecting && entry.intersectionRatio > 0) {
             const certId = (entry.target as HTMLElement).id.replace('certificate-', '')
             const certName = certificateNames.find(name => 
               name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === certId
             )
-            // Only consider certificates that are open
-            if (certName && openCertificates.has(certName)) {
+            // Track all certificates, not just open ones
+            if (certName) {
               if (!mostVisible || entry.intersectionRatio > mostVisible.ratio) {
                 mostVisible = {
-                  element: entry.target,
+                  element: entry.target as HTMLElement,
                   ratio: entry.intersectionRatio
                 }
               }
             }
           }
-        })
+        }
 
         if (mostVisible) {
-          const certId = (mostVisible.element as HTMLElement).id.replace('certificate-', '')
+          const certId = mostVisible.element.id.replace('certificate-', '')
           setActiveCertificate(certId)
         } else {
-          // Clear active certificate if no open certificate is visible
+          // Clear active certificate if no certificate is visible
           setActiveCertificate(null)
         }
       },
@@ -150,22 +152,6 @@ export default function TableOfContents() {
       observeCertificates()
     }, 100)
 
-    // Clear active state if item is closed
-    if (activeProject) {
-      const projectName = projectNames.find(name => name.toLowerCase() === activeProject)
-      if (projectName && !openProjects.has(projectName)) {
-        setActiveProject(null)
-      }
-    }
-
-    if (activeCertificate) {
-      const certName = certificateNames.find(name => 
-        name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === activeCertificate
-      )
-      if (certName && !openCertificates.has(certName)) {
-        setActiveCertificate(null)
-      }
-    }
 
     return () => {
       sectionObserver.disconnect()
@@ -210,7 +196,7 @@ export default function TableOfContents() {
                       {openProjectsList.map((projectName, index) => {
                         const projectId = projectName.toLowerCase()
                         const isOpen = openProjects.has(projectName)
-                        const isActive = isOpen && activeProject === projectId
+                        const isActive = activeProject === projectId
                         return (
                           <li key={projectName} className={styles.tocSubItem}>
                             <motion.a
@@ -285,7 +271,7 @@ export default function TableOfContents() {
                       {openCertificatesList.map((certName, index) => {
                         const certId = certName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
                         const isOpen = openCertificates.has(certName)
-                        const isActive = isOpen && activeCertificate === certId
+                        const isActive = activeCertificate === certId
                         return (
                           <li key={certName} className={styles.tocSubItem}>
                             <motion.a
