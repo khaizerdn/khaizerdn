@@ -102,9 +102,12 @@ export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 })
   const [mounted, setMounted] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    // Check if device is touch-enabled (mobile/tablet)
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
   }, [])
 
 
@@ -157,6 +160,7 @@ export default function Projects() {
                 className={styles.projectItem}
                 onClick={() => handleProjectClick(project.name)}
                 onMouseEnter={(e) => {
+                  if (isTouchDevice) return
                   const images = getProjectImages(project)
                   if (images.length > 0) {
                     setHoveredProject(project.name)

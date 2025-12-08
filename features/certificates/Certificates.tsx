@@ -94,9 +94,12 @@ export default function Certificates() {
   const [hoveredCertificate, setHoveredCertificate] = useState<string | null>(null)
   const [initialMousePosition, setInitialMousePosition] = useState({ x: 0, y: 0 })
   const [mounted, setMounted] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    // Check if device is touch-enabled (mobile/tablet)
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
   }, [])
 
   const handleCertificateClick = (certificateName: string) => {
@@ -148,6 +151,7 @@ export default function Certificates() {
                 className={styles.certificateItem}
                 onClick={() => handleCertificateClick(cert.name)}
                 onMouseEnter={(e) => {
+                  if (isTouchDevice) return
                   if (cert.images.length > 0) {
                     setHoveredCertificate(cert.name)
                     setInitialMousePosition({ x: e.clientX, y: e.clientY })
