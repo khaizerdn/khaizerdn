@@ -90,7 +90,7 @@ export default function Hero() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/khaizerdn', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/khaizerdn', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:khaizerdn@gmail.com', label: 'Email' },
+    { icon: Mail, href: 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=khaizerdn@gmail.com', label: 'Email' },
     { icon: Facebook, href: 'https://facebook.com/khaizerdn', label: 'Facebook' },
     { icon: Instagram, href: 'https://instagram.com/khaizerdn', label: 'Instagram' },
   ]
@@ -101,6 +101,7 @@ export default function Hero() {
       .replace('https://', '')
       .replace('http://', '')
       .replace('www.', '')
+      .replace(/mail\.google\.com\/mail\/u\/0\/\?view=cm&fs=1&to=/, '')
   }
 
   const splitUrl = (url: string | null) => {
@@ -282,43 +283,23 @@ export default function Hero() {
           <div className={styles.themesContainer}>
             {socialLinks.map((social) => {
               const Icon = social.icon
-              const isMailto = social.href.startsWith('mailto:')
-              if (isMailto) {
-                return (
-                  <motion.button
-                    key={social.label}
-                    type="button"
-                    className={styles.themeButton}
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    onMouseEnter={() => setHoveredUrl(social.href)}
-                    onMouseLeave={() => setHoveredUrl(null)}
-                    onMouseDown={() => setHoveredUrl(social.href)}
-                    onTouchStart={() => setHoveredUrl(social.href)}
-                    onClick={() => {
-                      // Use window.open for better reliability across browsers
-                      window.open(social.href, '_self')
-                    }}
-                  >
-                    <Icon size={24} className={styles.socialIcon} />
-                    <span className={styles.srOnly}>{social.label}</span>
-                  </motion.button>
-                )
+              const commonProps = {
+                key: social.label,
+                className: styles.themeButton,
+                whileHover: { scale: 1.2 },
+                transition: { duration: 0.2, ease: 'easeOut' },
+                onMouseEnter: () => setHoveredUrl(social.href),
+                onMouseLeave: () => setHoveredUrl(null),
+                onMouseDown: () => setHoveredUrl(social.href),
+                onTouchStart: () => setHoveredUrl(social.href),
               }
 
               return (
                 <motion.a
-                  key={social.label}
+                  {...commonProps}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.themeButton}
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  onMouseEnter={() => setHoveredUrl(social.href)}
-                  onMouseLeave={() => setHoveredUrl(null)}
-                  onMouseDown={() => setHoveredUrl(social.href)}
-                  onTouchStart={() => setHoveredUrl(social.href)}
                 >
                   <Icon size={24} className={styles.socialIcon} />
                   <span className={styles.srOnly}>{social.label}</span>
