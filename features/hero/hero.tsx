@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram } from 'lucide-react'
+import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram, Sun, Moon } from 'lucide-react'
+import { useTheme } from '@/lib/theme-context'
 import Tooltip from '@/components/tooltip/Tooltip'
 import styles from './hero.module.css'
 
@@ -15,6 +16,7 @@ const AUTO_HOVER_CONFIG = {
 } as const
 
 export default function Hero() {
+  const { theme, toggleTheme } = useTheme()
   const [hoveredUrl, setHoveredUrl] = useState<string | null>(null)
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
   const [hoveredLetter, setHoveredLetter] = useState<string | null>(null)
@@ -24,13 +26,13 @@ export default function Hero() {
   const autoHoverIndexRef = useRef(0)
 
   const quotes = [
-    // "Always imagine ~",
-    // "They shouldn't be teaching you what to think but how to think.",
+    "Always imagine ~",
+    "They shouldn't be teaching you what to think but how to think.",
     "Talent is a pursued interest. In other words, anything that you're willing to practice, you can do. ~ Bob Ross",
-    // "Find what you love, what you’re good at, what the world needs, and what you can be paid for. ~ Ikigai",
-    // "Continuous improvement turns progress into greatness. ~ Kaizen",
-    // "We encounter problems not by accident, but because we are searching for something better.",
-    // "Life is art and creativity makes it interesting.",
+    "Find what you love, what you’re good at, what the world needs, and what you can be paid for. ~ Ikigai",
+    "Continuous improvement turns progress into greatness. ~ Kaizen",
+    "We encounter problems not by accident, but because we are searching for something better.",
+    "Life is art and creativity makes it interesting.",
   ]
 
   useEffect(() => {
@@ -140,6 +142,27 @@ export default function Hero() {
   return (
     <section id="home" className={styles.section}>
       <div className={styles.content}>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className={styles.themeToggleWrapper}
+        >
+          <motion.button
+            onClick={toggleTheme}
+            className={styles.themeToggleButton}
+            aria-label="Toggle theme"
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            {theme === 'light' ? (
+              <Sun size={20} className={styles.themeToggleIcon} />
+            ) : (
+              <Moon size={20} className={styles.themeToggleIcon} />
+            )}
+          </motion.button>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
