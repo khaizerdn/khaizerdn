@@ -283,12 +283,35 @@ export default function Hero() {
             {socialLinks.map((social) => {
               const Icon = social.icon
               const isMailto = social.href.startsWith('mailto:')
+              if (isMailto) {
+                return (
+                  <motion.button
+                    key={social.label}
+                    type="button"
+                    className={styles.themeButton}
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    onMouseEnter={() => setHoveredUrl(social.href)}
+                    onMouseLeave={() => setHoveredUrl(null)}
+                    onMouseDown={() => setHoveredUrl(social.href)}
+                    onTouchStart={() => setHoveredUrl(social.href)}
+                    onClick={() => {
+                      // Use window.open for better reliability across browsers
+                      window.open(social.href, '_self')
+                    }}
+                  >
+                    <Icon size={24} className={styles.socialIcon} />
+                    <span className={styles.srOnly}>{social.label}</span>
+                  </motion.button>
+                )
+              }
+
               return (
                 <motion.a
                   key={social.label}
                   href={social.href}
-                  target={isMailto ? "_self" : "_blank"}
-                  rel={isMailto ? undefined : "noopener noreferrer"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={styles.themeButton}
                   whileHover={{ scale: 1.2 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
@@ -296,12 +319,6 @@ export default function Hero() {
                   onMouseLeave={() => setHoveredUrl(null)}
                   onMouseDown={() => setHoveredUrl(social.href)}
                   onTouchStart={() => setHoveredUrl(social.href)}
-                  onClick={(e) => {
-                    if (isMailto) {
-                      e.preventDefault()
-                      window.location.href = social.href
-                    }
-                  }}
                 >
                   <Icon size={24} className={styles.socialIcon} />
                   <span className={styles.srOnly}>{social.label}</span>
