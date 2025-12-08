@@ -125,9 +125,6 @@ export default function Certificates() {
           className={styles.header}
         >
           <h2 className={styles.title}>CERTIFICATES</h2>
-          <p className={styles.description}>
-            Professional certifications and achievements that validate my technical expertise and commitment to continuous learning.
-          </p>
         </motion.div>
 
         <motion.div

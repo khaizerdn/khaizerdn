@@ -33,9 +33,6 @@ export default function Education() {
           className={styles.header}
         >
           <h2 className={styles.title}>EDUCATION</h2>
-          <p className={styles.description}>
-            My educational background and achievement that have shaped my technical foundation and professional growth.
-          </p>
         </motion.div>
 
         <div className={styles.educationContainer}>

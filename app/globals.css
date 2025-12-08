@@ -157,6 +157,10 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeInUp 0.8s ease-out;
 }
 
+.main-content {
+  width: 100%;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -134,9 +134,6 @@ export default function Projects() {
           className={styles.header}
         >
           <h2 className={styles.title}>PROJECTS</h2>
-          <p className={styles.description}>
-            A collection of my recent work and side projects, showcasing my skills in web development and design.
-          </p>
         </motion.div>
 
         <motion.div

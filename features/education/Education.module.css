@@ -7,7 +7,7 @@
   position: relative;
   background-color: var(--background);
   transition: background-color 0.3s;
-  padding: 6rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .content {
@@ -16,7 +16,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .header {
@@ -40,7 +40,7 @@
 .description {
   font-size: 1rem;
   font-weight: 300;
-  color: var(--foreground);
+  color: var(--text-secondary);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -116,7 +116,7 @@
 .degree {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--text-secondary);
+  color: var(--foreground);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -136,7 +136,7 @@
 .honor {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--text-secondary);
+  color: var(--foreground);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -151,7 +151,7 @@
 .gpa {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--text-secondary);
+  color: var(--foreground);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
