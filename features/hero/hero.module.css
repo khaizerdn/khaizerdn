@@ -23,23 +23,23 @@
 }
 
 .title {
-  font-size: 6rem;
-  font-weight: 700;
+  font-size: 5rem;
+  font-weight: 500;
   word-break: break-word;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  line-height: 0.9;
+  line-height: 1.1;
   min-height: unset;
-  letter-spacing: -0.011em;
+  letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .titleText {
   color: #1d1d1f;
-  font-weight: 700;
+  font-weight: 500;
   word-break: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,7 +76,7 @@
 }
 
 .quoteContainer {
-  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -184,7 +184,7 @@
 
 @media (max-width: 1440px) {
   .title {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
   .quoteWrapper {
     width: 600px;
@@ -211,7 +211,7 @@
 
 @media (max-width: 770px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .quoteWrapper {
     width: 400px;
@@ -223,7 +223,7 @@
 
 @media (max-width: 540px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .quoteWrapper {
     width: 300px;
@@ -235,6 +235,6 @@
 
 @media (max-width: 360px) {
   .title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
