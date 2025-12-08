@@ -21,6 +21,7 @@ export default function Hero() {
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
   const [hoveredLetter, setHoveredLetter] = useState<string | null>(null)
   const [isAutoHoverPaused, setIsAutoHoverPaused] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const autoHoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const autoHoverIntervalRef = useRef<NodeJS.Timeout | null>(null)
   const autoHoverIndexRef = useRef(0)
@@ -42,6 +43,11 @@ export default function Hero() {
 
     return () => clearInterval(interval)
   }, [quotes.length])
+
+  // Check if device is touch-enabled (mobile/tablet)
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -288,10 +294,15 @@ export default function Hero() {
                 className: styles.themeButton,
                 whileHover: { scale: 1.2 },
                 transition: { duration: 0.2, ease: 'easeOut' },
-                onMouseEnter: () => setHoveredUrl(social.href),
-                onMouseLeave: () => setHoveredUrl(null),
-                onMouseDown: () => setHoveredUrl(social.href),
-                onTouchStart: () => setHoveredUrl(social.href),
+                onMouseEnter: () => {
+                  if (!isTouchDevice) setHoveredUrl(social.href)
+                },
+                onMouseLeave: () => {
+                  if (!isTouchDevice) setHoveredUrl(null)
+                },
+                onMouseDown: () => {
+                  if (!isTouchDevice) setHoveredUrl(social.href)
+                },
               }
 
               return (
@@ -312,8 +323,12 @@ export default function Hero() {
               aria-label="Toggle theme"
               whileHover={{ scale: 1.2 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              onMouseEnter={() => setHoveredUrl('THEME_TOGGLE')}
-              onMouseLeave={() => setHoveredUrl(null)}
+              onMouseEnter={() => {
+                if (!isTouchDevice) setHoveredUrl('THEME_TOGGLE')
+              }}
+              onMouseLeave={() => {
+                if (!isTouchDevice) setHoveredUrl(null)
+              }}
             >
               {theme === 'light' ? (
                 <Moon size={20} className={styles.themeToggleIcon} />
