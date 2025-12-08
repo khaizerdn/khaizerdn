@@ -22,7 +22,7 @@
 .tocItem {
   cursor: pointer;
   font-size: 0.875rem;
-  color: #86868b;
+  color: var(--text-secondary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-weight: 300;
@@ -31,11 +31,11 @@
 }
 
 .tocItem:hover {
-  color: #1d1d1f;
+  color: var(--foreground);
 }
 
 .active {
-  color: #1d1d1f;
+  color: var(--foreground);
   font-weight: 500;
   transform: scale(1.05);
 }

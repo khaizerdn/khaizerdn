@@ -143,27 +143,6 @@ export default function Hero() {
     <section id="home" className={styles.section}>
       <div className={styles.content}>
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={styles.themeToggleWrapper}
-        >
-          <motion.button
-            onClick={toggleTheme}
-            className={styles.themeToggleButton}
-            aria-label="Toggle theme"
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
-            {theme === 'light' ? (
-              <Sun size={20} className={styles.themeToggleIcon} />
-            ) : (
-              <Moon size={20} className={styles.themeToggleIcon} />
-            )}
-          </motion.button>
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -317,6 +296,21 @@ export default function Hero() {
                 </motion.a>
               )
             })}
+            <motion.button
+              onClick={toggleTheme}
+              className={styles.themeToggleButton}
+              aria-label="Toggle theme"
+              whileHover={{ scale: 1.2 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              onMouseEnter={() => setHoveredUrl('Theme Toggle')}
+              onMouseLeave={() => setHoveredUrl(null)}
+            >
+              {theme === 'light' ? (
+                <Sun size={20} className={styles.themeToggleIcon} />
+              ) : (
+                <Moon size={20} className={styles.themeToggleIcon} />
+              )}
+            </motion.button>
           </div>
         </motion.div>
 

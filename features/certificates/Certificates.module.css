@@ -4,7 +4,8 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  background-color: white;
+  background-color: var(--background);
+  transition: background-color 0.3s;
   padding: 6rem 1rem;
 }
 
@@ -27,7 +28,7 @@
 .title {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #86868b;
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0;
@@ -38,7 +39,7 @@
 .description {
   font-size: 1rem;
   font-weight: 300;
-  color: #1d1d1f;
+  color: var(--foreground);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -53,7 +54,7 @@
 }
 
 .certificateWrapper {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--border-color);
   transition: border-bottom-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -68,7 +69,7 @@
 }
 
 .certificateItem:hover .certName {
-  color: #86868b;
+  color: var(--text-secondary);
 }
 
 .certificateWrapper:has(.certificateItem:hover) {
@@ -84,7 +85,7 @@
 .certName {
   font-size: 1rem;
   font-weight: 300;
-  color: #1d1d1f;
+  color: var(--foreground);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -94,7 +95,7 @@
 .certIssuer {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 0.5rem;
@@ -104,7 +105,7 @@
 .certYear {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -5,7 +5,8 @@
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  background-color: white;
+  background-color: var(--background);
+  transition: background-color 0.3s;
   padding: 6rem 1rem;
 }
 
@@ -28,7 +29,7 @@
 .title {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #86868b;
+  color: var(--text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0;
@@ -39,7 +40,7 @@
 .description {
   font-size: 1rem;
   font-weight: 300;
-  color: #1d1d1f;
+  color: var(--foreground);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -54,7 +55,7 @@
 }
 
 .educationWrapper {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--border-color);
   padding: 2rem 0;
 }
 
@@ -80,7 +81,7 @@
 .schoolName {
   font-size: 1rem; /* Consistent with Project/Certificate titles */
   font-weight: 300; /* Regular weight */
-  color: #1d1d1f;
+  color: var(--foreground);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -91,7 +92,7 @@
 .year {
   font-size: 0.875rem; /* Consistent small text */
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -108,7 +109,7 @@
 .degree {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -126,14 +127,14 @@
 .honor {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .separator {
-  color: #d2d2d7;
+  color: #d2d2d7; /* Could be subtle grey in dark mode too, maybe var(--border-color) if defined, but #d2d2d7 is light grey. Let's keep it or use text-secondary with opacity */
   font-size: 0.875rem;
   line-height: 1;
 }
@@ -141,7 +142,7 @@
 .gpa {
   font-size: 0.875rem;
   font-weight: 300;
-  color: #86868b;
+  color: var(--text-secondary);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

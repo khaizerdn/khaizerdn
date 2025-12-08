@@ -16,13 +16,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
-    // Check system preference on mount
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark')
-    }
-  }, [])
-
-  useEffect(() => {
     // Update HTML class when theme changes
     const root = window.document.documentElement
     root.classList.remove('light', 'dark')
