@@ -8,7 +8,8 @@ import styles from './TableOfContents.module.css'
 const sections = [
   { id: 'home', label: 'Home' },
   { id: 'projects', label: 'Projects' },
-  { id: 'certificates', label: 'Certificates' }
+  { id: 'certificates', label: 'Certificates' },
+  { id: 'education', label: 'Education' }
 ]
 
 export default function TableOfContents() {

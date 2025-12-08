@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Hero from '@/features/hero/hero'
 import Projects from '@/features/projects/projects'
 import Certificates from '@/features/certificates/Certificates'
+import Education from '@/features/education/Education'
 import TableOfContents from '@/features/toc/TableOfContents'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <Projects />
         <Certificates />
+        <Education />
       </motion.div>
     </>
   )
