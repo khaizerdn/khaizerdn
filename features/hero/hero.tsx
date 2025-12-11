@@ -198,13 +198,14 @@ export default function Hero() {
                               }
                             }}
                             onMouseLeave={() => {
+                              // Immediately clear hover state
+                              setHoveredLetter(null)
                               // Resume auto-hover after a short delay
                               if (autoHoverTimeoutRef.current) {
                                 clearTimeout(autoHoverTimeoutRef.current)
                               }
                               autoHoverTimeoutRef.current = setTimeout(() => {
                                 setIsAutoHoverPaused(false)
-                                setHoveredLetter(null)
                               }, AUTO_HOVER_CONFIG.resumeDelay)
                             }}
                           >
