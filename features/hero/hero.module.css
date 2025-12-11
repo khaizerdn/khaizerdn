@@ -19,6 +19,33 @@
   padding: 0 1rem;
 }
 
+.profilePictureWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePicture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  aspect-ratio: 1 / 1 !important;
+  display: block;
+}
+
 .titleWrapper {
   width: 100%;
 }
@@ -282,6 +309,10 @@
   .quote {
     font-size: 1.125rem;
   }
+  .profilePicture {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 540px) {
@@ -293,6 +324,10 @@
   }
   .quote {
     font-size: 1rem;
+  }
+  .profilePicture {
+    width: 120px;
+    height: 120px;
   }
 }
 

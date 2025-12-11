@@ -2,9 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { ChevronDown, Github, Linkedin, Mail, Facebook, Instagram, Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/lib/theme-context'
 import Tooltip from '@/components/tooltip/Tooltip'
+import profileImage from './assets/khaizerdn.png'
 import styles from './hero.module.css'
 
 // Auto-hover configuration for header
@@ -149,6 +151,27 @@ export default function Hero() {
   return (
     <section id="home" className={styles.section}>
       <div className={styles.content}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className={styles.profilePictureWrapper}
+        >
+          <div className={styles.profilePicture}>
+            <Image
+              src={profileImage}
+              alt="Profile"
+              width={200}
+              height={200}
+              className={styles.profileImage}
+              style={{
+                borderRadius: '50%',
+                objectFit: 'cover',
+              }}
+              priority
+            />
+          </div>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
