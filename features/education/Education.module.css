@@ -55,39 +55,38 @@
 }
 
 .educationWrapper {
-  padding: 0;
-}
-
-.educationWrapper:first-child {
-  padding-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-bottom-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .educationItem {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem; /* Tighter gap for better grouping */
-  width: 100%;
-}
-
-.schoolHeader {
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   gap: 1rem;
   min-width: 0;
-  width: 100%;
+}
+
+.educationItem:hover .schoolName {
+  color: var(--text-secondary);
+}
+
+.educationWrapper:has(.educationItem:hover) {
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 .schoolName {
-  font-size: 1rem; /* Consistent with Project/Certificate titles */
-  font-weight: 300; /* Regular weight */
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--foreground);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  line-height: 1.3;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
   flex: 1;
   min-width: 0;
@@ -96,18 +95,23 @@
 }
 
 .year {
-  font-size: 0.875rem; /* Consistent small text */
+  font-size: 0.875rem;
   font-weight: 300;
   color: var(--text-secondary);
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  white-space: nowrap;
-  margin-left: 1rem;
   flex-shrink: 0;
+  margin-left: 1rem;
 }
 
-.detailsWrapper {
+.educationContent {
+  overflow: visible;
+  padding: 0;
+  will-change: height;
+}
+
+.contentWrapper {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
@@ -116,7 +120,7 @@
 .degree {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--foreground);
+  color: var(--text-secondary);
   line-height: 1.47059;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -125,34 +129,60 @@
   overflow-wrap: break-word;
 }
 
-.achievements {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
-}
-
 .honor {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--foreground);
+  color: var(--text-secondary);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .separator {
-  color: #d2d2d7; /* Could be subtle grey in dark mode too, maybe var(--border-color) if defined, but #d2d2d7 is light grey. Let's keep it or use text-secondary with opacity */
+  color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1;
+  opacity: 0.6;
 }
 
 .gpa {
   font-size: 0.875rem;
   font-weight: 300;
-  color: var(--foreground);
+  color: var(--text-secondary);
   line-height: 1.47059;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.contentImage {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  border-radius: 2rem;
+  object-fit: cover;
+  display: block;
+  margin: 1rem 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.hoverPreview {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.previewFrame {
+  width: 400px;
+  height: 250px;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: transparent;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
