@@ -51,16 +51,19 @@ export default function TableOfContents() {
         })
         
         // Find the most visible section
-        let mostVisible: { id: string; ratio: number } | null = null
+        let mostVisibleId: string | null = null
+        let maxRatio = 0
+        
         visibleSections.forEach((ratio, id) => {
-          if (!mostVisible || ratio > mostVisible.ratio) {
-            mostVisible = { id, ratio }
+          if (ratio > maxRatio) {
+            maxRatio = ratio
+            mostVisibleId = id
           }
         })
         
         // Update active section - clear if no sections are visible
-        if (mostVisible) {
-          setActiveSection(mostVisible.id)
+        if (mostVisibleId) {
+          setActiveSection(mostVisibleId)
         } else {
           // Clear active section when no sections are visible
           setActiveSection('')
