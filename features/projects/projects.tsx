@@ -3,12 +3,44 @@
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useProjects } from '@/lib/projects-context'
 import styles from './projects.module.css'
 
+// Import all DOxion images
+import doxion1 from './assets/doxion/1.png'
+import doxion2 from './assets/doxion/2.png'
+import doxion3 from './assets/doxion/3.png'
+import doxion4 from './assets/doxion/4.png'
+import doxion5 from './assets/doxion/5.png'
+import doxion6 from './assets/doxion/6.png'
+import doxion7 from './assets/doxion/7.png'
+import doxion8 from './assets/doxion/8.png'
+import doxion9 from './assets/doxion/9.png'
+import doxion10 from './assets/doxion/10.png'
+import doxion11 from './assets/doxion/11.png'
+import doxion12 from './assets/doxion/12.png'
+import doxion13 from './assets/doxion/13.jpg'
+import doxion14 from './assets/doxion/14.jpg'
+import doxion15 from './assets/doxion/15.jpg'
+import doxion16 from './assets/doxion/16.jpg'
+import doxion18 from './assets/doxion/18.png'
+import doxionMobile from './assets/doxion/mobile.png'
+import doxionPrototype from './assets/doxion/prototype.jpg'
+import doxionMain from './assets/doxion/main.jpg'
+
+const doxionImages: string[] = [
+  doxion1, doxion2, doxion3, doxion4, doxion5, doxion6, doxion7, doxion8, doxion9, doxion10,
+  doxion11, doxion12, doxion13, doxion14, doxion15, doxion16, doxion18,
+  doxionMobile, doxionPrototype, doxionMain
+].map(img => (typeof img === 'string' ? img : (img as any).src || String(img))) as string[]
+
 type ContentItem = 
   | { type: 'paragraph'; content: string }
-  | { type: 'image'; src: string; alt: string }
+  | { type: 'image'; src: string | any; alt: string }
+  | { type: 'imageSlider'; images: string[]; alt: string }
+  | { type: 'badges'; technologies: string[] }
+  | { type: 'link'; url: string; text: string }
 
 type Project = {
   name: string
@@ -21,24 +53,38 @@ const projects: Project[] = [
     name: 'Doxion', 
     year: '2025', 
     content: [
-      { type: 'paragraph', content: 'A modern document management system with advanced collaboration features designed for teams of all sizes.' },
-      { type: 'paragraph', content: 'Built with cutting-edge technology, Doxion enables seamless document sharing, real-time editing, and intelligent version control. The platform supports over 50 file formats and integrates with popular productivity tools.' },
-      { type: 'image', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', alt: 'Doxion dashboard interface' },
-      { type: 'paragraph', content: 'Key features include advanced search capabilities, automated workflow management, and enterprise-grade security. The intuitive interface makes it easy for users to organize, collaborate, and manage their documents efficiently.' },
-      { type: 'image', src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop', alt: 'Document collaboration view' },
-      { type: 'paragraph', content: 'The system includes AI-powered document analysis, smart tagging, and automated categorization. Teams can work together in real-time with conflict resolution and comprehensive audit trails.' },
+      { type: 'paragraph', content: 'A React-based web application for document submission system of Cavite State University, integrated with kiosk interfaces and scalable smart lockers powered by Raspberry Pi and ESP8266, significantly improving operational efficiency and user experience for students and faculty.' },
+      { type: 'imageSlider', images: doxionImages, alt: 'Doxion application interface' },
+      { type: 'badges', technologies: ['React', 'Node.js', 'MySQL', 'C++', 'Raspberry Pi 4B', 'ESP8266', 'HTML5', 'CSS3', 'JavaScript'] },
+      { type: 'link', url: 'https://github.com/khaizerdn/Doxion', text: 'View on GitHub' },
     ]
   },
   { 
-    name: 'Tweetheart', 
+    name: 'Shield', 
     year: '2025', 
     content: [
-      { type: 'paragraph', content: 'A comprehensive social media analytics platform that helps users understand their audience and optimize their content strategy.' },
-      { type: 'paragraph', content: 'Tweetheart provides real-time analytics, sentiment analysis, and engagement metrics across multiple social media platforms. The dashboard offers actionable insights to improve content performance and grow your online presence.' },
-      { type: 'image', src: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop', alt: 'Social media analytics dashboard' },
-      { type: 'paragraph', content: 'The platform includes advanced features like competitor analysis, trend prediction, and automated reporting. With customizable dashboards and detailed analytics, users can make data-driven decisions to enhance their social media strategy.' },
-      { type: 'image', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', alt: 'Analytics charts and graphs' },
-      { type: 'paragraph', content: 'Additional capabilities include influencer tracking, hashtag performance analysis, and optimal posting time recommendations. The platform supports scheduling, content suggestions, and cross-platform campaign management.' },
+      { type: 'paragraph', content: 'Coming soon...' },
+    ]
+  },
+  { 
+    name: 'Winzer', 
+    year: '2025', 
+    content: [
+      { type: 'paragraph', content: 'Coming soon...' },
+    ]
+  },
+  { 
+    name: 'Shuttlecav', 
+    year: '2025', 
+    content: [
+      { type: 'paragraph', content: 'Coming soon...' },
+    ]
+  },
+  { 
+    name: 'Fizer', 
+    year: '2025', 
+    content: [
+      { type: 'paragraph', content: 'Coming soon...' },
     ]
   },
 ]
@@ -46,9 +92,140 @@ const projects: Project[] = [
 // Helper to get images from project content
 const getProjectImages = (project: Project): string[] => {
   if (typeof project.content === 'string') return []
-  return project.content
-    .filter((item): item is { type: 'image'; src: string; alt: string } => item.type === 'image')
-    .map(item => item.src)
+  const images: string[] = []
+  project.content.forEach(item => {
+    if (item.type === 'image') {
+      images.push(typeof item.src === 'string' ? item.src : item.src.src || item.src)
+    } else if (item.type === 'imageSlider') {
+      images.push(...item.images)
+    }
+  })
+  return images
+}
+
+// Image Slider Component
+function ImageSlider({ images, alt }: { images: string[]; alt: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const touchStartX = useRef<number | null>(null)
+  const touchEndX = useRef<number | null>(null)
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+  }
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+  }
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return
+    
+    const diff = touchStartX.current - touchEndX.current
+    const minSwipeDistance = 50
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0) {
+        goToNext()
+      } else {
+        goToPrevious()
+      }
+    }
+    
+    touchStartX.current = null
+    touchEndX.current = null
+  }
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+      }
+      if (e.key === 'ArrowRight') {
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+      }
+    }
+    
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [images.length])
+
+  return (
+    <div 
+      className={styles.imageSlider}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className={styles.sliderContainer}>
+        <div className={styles.sliderImageWrapper}>
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={currentIndex}
+              src={images[currentIndex]}
+              alt={`${alt} - Image ${currentIndex + 1}`}
+              className={styles.sliderImage}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              loading="lazy"
+            />
+          </AnimatePresence>
+        </div>
+        
+        {images.length > 1 && (
+          <>
+            <button
+              className={styles.sliderButton}
+              onClick={goToPrevious}
+              aria-label="Previous image"
+              style={{ opacity: isHovered ? 1 : 0 }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              className={`${styles.sliderButton} ${styles.sliderButtonRight}`}
+              onClick={goToNext}
+              aria-label="Next image"
+              style={{ opacity: isHovered ? 1 : 0 }}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+      </div>
+      
+      {images.length > 1 && (
+        <div className={styles.sliderIndicators}>
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.indicator} ${index === currentIndex ? styles.indicatorActive : ''}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+      
+      {images.length > 1 && (
+        <div className={styles.sliderCounter}>
+          {currentIndex + 1} / {images.length}
+        </div>
+      )}
+    </div>
+  )
 }
 
 function ProjectPreview({ images, initialX, initialY, projectName }: { images: string[], initialX: number, initialY: number, projectName: string }) {
@@ -199,9 +376,9 @@ export default function Projects() {
                           <div key={idx}>
                             {item.type === 'paragraph' ? (
                               <p className={styles.contentParagraph}>{item.content}</p>
-                            ) : (
+                            ) : item.type === 'image' ? (
                               <motion.img
-                                src={item.src}
+                                src={typeof item.src === 'string' ? item.src : item.src.src || item.src}
                                 alt={item.alt}
                                 className={styles.contentImage}
                                 initial={{ opacity: 0, y: 10 }}
@@ -209,7 +386,26 @@ export default function Projects() {
                                 transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
                                 loading="lazy"
                               />
-                            )}
+                            ) : item.type === 'imageSlider' ? (
+                              <ImageSlider images={item.images} alt={item.alt} />
+                            ) : item.type === 'badges' ? (
+                              <div className={styles.badgesContainer}>
+                                {item.technologies.map((tech, techIdx) => (
+                                  <span key={techIdx} className={styles.badge}>
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : item.type === 'link' ? (
+                              <a
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.projectLink}
+                              >
+                                {item.text} →
+                              </a>
+                            ) : null}
                           </div>
                         ))
                       )}
