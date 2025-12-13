@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useProjects } from '@/lib/projects-context'
 import { useCertificates } from '@/lib/certificates-context'
+import { useEducation } from '@/lib/education-context'
 import styles from './TableOfContents.module.css'
 
 const sections = [
@@ -21,14 +22,17 @@ const certificateNames = [
   'AWS Certified Cloud Practitioner',
   'JavaScript Algorithms and Data Structures'
 ]
+const educationNames = ['Cavite State University - Carmona Campus']
 
 export default function TableOfContents() {
   const [activeSection, setActiveSection] = useState('home')
   const [activeProject, setActiveProject] = useState<string | null>(null)
   const [activeCertificate, setActiveCertificate] = useState<string | null>(null)
+  const [activeEducation, setActiveEducation] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
   const { openProjects, setOpenProjects } = useProjects()
   const { openCertificates, setOpenCertificates } = useCertificates()
+  const { openEducation, setOpenEducation } = useEducation()
 
   useEffect(() => {
     setMounted(true)
@@ -142,6 +146,44 @@ export default function TableOfContents() {
       }
     )
 
+    const educationObserver = new IntersectionObserver(
+      (entries) => {
+        // Find the most visible education item that is open
+        type MostVisible = { element: HTMLElement; ratio: number }
+        let mostVisible: MostVisible | null = null
+        
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            const eduId = (entry.target as HTMLElement).id.replace('education-', '')
+            const eduName = educationNames.find(name => 
+              name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') === eduId
+            )
+            // Only consider education items that are open
+            if (eduName && openEducation.has(eduName)) {
+              if (!mostVisible || entry.intersectionRatio > mostVisible.ratio) {
+                mostVisible = {
+                  element: entry.target as HTMLElement,
+                  ratio: entry.intersectionRatio
+                }
+              }
+            }
+          }
+        }
+
+        if (mostVisible) {
+          const eduId = mostVisible.element.id.replace('education-', '')
+          setActiveEducation(eduId)
+        } else {
+          // Clear active education if no open education item is visible
+          setActiveEducation(null)
+        }
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+      }
+    )
+
     sections.forEach(({ id }) => {
       const element = document.getElementById(id)
       if (element) sectionObserver.observe(element)
@@ -164,14 +206,25 @@ export default function TableOfContents() {
       })
     }
 
+    // Always observe all education items
+    const observeEducation = () => {
+      educationNames.forEach((name) => {
+        const eduId = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+        const element = document.getElementById(`education-${eduId}`)
+        if (element) educationObserver.observe(element)
+      })
+    }
+
     // Initial observation
     observeProjects()
     observeCertificates()
+    observeEducation()
 
-    // Re-observe when openProjects or openCertificates changes
+    // Re-observe when openProjects, openCertificates, or openEducation changes
     const timeoutId = setTimeout(() => {
       observeProjects()
       observeCertificates()
+      observeEducation()
     }, 100)
 
 
@@ -179,9 +232,10 @@ export default function TableOfContents() {
       sectionObserver.disconnect()
       projectObserver.disconnect()
       certificateObserver.disconnect()
+      educationObserver.disconnect()
       clearTimeout(timeoutId)
     }
-  }, [openProjects, openCertificates, activeProject, activeCertificate])
+  }, [openProjects, openCertificates, openEducation, activeProject, activeCertificate, activeEducation])
 
   if (!mounted) return null
 
@@ -199,9 +253,11 @@ export default function TableOfContents() {
             {sections.filter(s => s.id !== 'home').map((section) => {
               const isProjects = section.id === 'projects'
               const isCertificates = section.id === 'certificates'
+              const isEducation = section.id === 'education'
               // Always show all items
               const openProjectsList = isProjects ? projectNames : []
               const openCertificatesList = isCertificates ? certificateNames : []
+              const openEducationList = isEducation ? educationNames : []
               
               return (
                 <li key={section.id}>
@@ -357,6 +413,81 @@ export default function TableOfContents() {
                                 {index === openCertificatesList.length - 1 ? '└──' : '├──'}
                               </span>
                               <span>{certName}</span>
+                            </motion.a>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                  {isEducation && (
+                    <ul className={styles.tocSubList}>
+                      {openEducationList.map((eduName, index) => {
+                        const eduId = eduName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+                        const isOpen = openEducation.has(eduName)
+                        const isActive = isOpen && activeEducation === eduId
+                        return (
+                          <li key={eduName} className={styles.tocSubItem}>
+                            <motion.a
+                              href={`#education-${eduId}`}
+                              className={`${styles.tocSubLink} ${isActive ? styles.activeSub : ''}`}
+                              whileHover={{ x: -3 }}
+                              transition={{ duration: 0.2 }}
+                              onClick={(e) => {
+                                if (!isOpen) {
+                                  e.preventDefault()
+                                  const element = document.getElementById(`education-${eduId}`)
+                                  if (element) {
+                                    // Scroll to the item first
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                    
+                                    // Wait for scroll to reach the item, then open it
+                                    let scrollCheckInterval: NodeJS.Timeout | null = null
+                                    let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop
+                                    let scrollStoppedCount = 0
+                                    
+                                    const checkScroll = () => {
+                                      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop
+                                      const rect = element.getBoundingClientRect()
+                                      const isInView = rect.top >= 0 && rect.top <= window.innerHeight * 0.5
+                                      
+                                      // Check if scroll has stopped
+                                      if (Math.abs(currentScrollTop - lastScrollTop) < 1) {
+                                        scrollStoppedCount++
+                                      } else {
+                                        scrollStoppedCount = 0
+                                      }
+                                      lastScrollTop = currentScrollTop
+                                      
+                                      // Open when item is in view and scroll has stopped
+                                      if (isInView && scrollStoppedCount >= 2) {
+                                        setOpenEducation(prev => {
+                                          const newSet = new Set(prev)
+                                          newSet.add(eduName)
+                                          return newSet
+                                        })
+                                        if (scrollCheckInterval) {
+                                          clearInterval(scrollCheckInterval)
+                                        }
+                                      }
+                                    }
+                                    
+                                    // Start checking scroll position
+                                    scrollCheckInterval = setInterval(checkScroll, 50)
+                                    
+                                    // Cleanup after 3 seconds max
+                                    setTimeout(() => {
+                                      if (scrollCheckInterval) {
+                                        clearInterval(scrollCheckInterval)
+                                      }
+                                    }, 3000)
+                                  }
+                                }
+                              }}
+                            >
+                              <span className={styles.tocTree}>
+                                {index === openEducationList.length - 1 ? '└──' : '├──'}
+                              </span>
+                              <span>{eduName}</span>
                             </motion.a>
                           </li>
                         )
