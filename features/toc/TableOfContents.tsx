@@ -32,17 +32,39 @@ export default function TableOfContents() {
 
   useEffect(() => {
     setMounted(true)
+    const visibleSections = new Map<string, number>()
+    
     const sectionObserver = new IntersectionObserver(
       (entries) => {
+        // Update visibility map for all entries
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+          const sectionId = entry.target.id
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            visibleSections.set(sectionId, entry.intersectionRatio)
+          } else {
+            visibleSections.delete(sectionId)
           }
         })
+        
+        // Find the most visible section
+        let mostVisible: { id: string; ratio: number } | null = null
+        visibleSections.forEach((ratio, id) => {
+          if (!mostVisible || ratio > mostVisible.ratio) {
+            mostVisible = { id, ratio }
+          }
+        })
+        
+        // Update active section - clear if no sections are visible
+        if (mostVisible) {
+          setActiveSection(mostVisible.id)
+        } else {
+          // Clear active section when no sections are visible
+          setActiveSection('')
+        }
       },
       {
         rootMargin: '-10% 0px -90% 0px', // Trigger when section hits top 10% of screen (very late)
-        threshold: 0
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
       }
     )
 
